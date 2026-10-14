@@ -1,373 +1,76 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>问天 · 从仰望到星河</title><meta name="description" content="问天：一场从古代星图到深空探索的沉浸式手机之旅，定制属于你的未来航天档案。"><meta name="theme-color" content="#05080b"><style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#04070c url(img/p01_ed0567dce49a.jpg) center/cover no-repeat;color:#eee8dc;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}body{touch-action:none}#app{position:relative;width:100%;height:100%;overflow:hidden;background:radial-gradient(130% 100% at 50% 0%,#0d1622 0%,#070c14 48%,#030509 100%)url(img/p01_ed0567dce49a.jpg) center/cover no-repeat,#0a0e15}.scene{position:absolute;inset:0;visibility:hidden;opacity:0;pointer-events:none;transform:scale(1.04);transition:opacity .7s ease,transform 1.1s cubic-bezier(.2,.75,.2,1),visibility 0s linear 1s}.scene.active{visibility:visible;opacity:1;pointer-events:auto;transform:scale(1);transition-delay:0s}.scene.leaving{opacity:0;transform:scale(.99)}.bg{position:absolute;inset:0;overflow:hidden}.bg:after{content:"";position:absolute;inset:0;z-index:8;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.02) 42%,rgba(0,0,0,.88) 100%)}.top{position:absolute;z-index:30;top:max(18px,env(safe-area-inset-top));left:7vw;right:7vw;display:flex;align-items:center;gap:12px}.brand{font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC","Source Han Serif SC",serif;letter-spacing:.18em;font-weight:400;font-size:13px;letter-spacing:.48em}.rule{height:1px;background:rgba(220,198,155,.22);flex:1}.count{font:10px Arial;letter-spacing:.22em;color:rgba(238,232,220,.5)}.copy{position:absolute;z-index:15;left:8vw;right:13vw;bottom:12vh;text-shadow:0 2px 18px #000}.kicker{font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC","Source Han Serif SC",serif;font-size:10px;font-weight:400;letter-spacing:.28em;color:#cdb98c;margin-bottom:12px}h1,h2{margin:0;font-weight:400;letter-spacing:.14em;font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC","Source Han Serif SC",serif;text-shadow:0 1px 0 rgba(255,255,255,.10),0 0 14px rgba(210,190,145,.08);font-synthesis:none}h1{font-size:16vw;line-height:1.02;transform:scaleX(.94);transform-origin:left center}h2{font-size:11.5vw;line-height:1.08;transform:scaleX(.95);transform-origin:left center}.sub{margin-top:12px;font-size:4vw;letter-spacing:.12em;font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC","Source Han Serif SC",serif;font-weight:400;transform:scaleX(.97);transform-origin:left center}.desc{margin-top:14px;font-size:3.35vw;line-height:1.85;color:rgba(238,232,220,.63);letter-spacing:.06em}.nav{position:absolute;z-index:30;right:4.5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px}.nav i{width:3px;height:3px;border-radius:50%;background:rgba(238,232,220,.25)}.nav i.on{width:5px;height:5px;background:#cdb98c;box-shadow:0 0 12px rgba(205,185,140,.45)}.hint{position:absolute;z-index:30;bottom:max(16px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.24em;color:rgba(238,232,220,.38);white-space:nowrap}.hint b{display:block;text-align:center;font-size:15px;font-weight:300;margin-bottom:2px}
-.s01 .bg{background:radial-gradient(circle at 50% 38%,#fff4ca 0 1px,transparent 2px),radial-gradient(circle at 50% 38%,rgba(255,220,145,.16),transparent 12%),radial-gradient(ellipse at 50% 46%,rgba(42,67,89,.42),transparent 52%),#020509}.ring{position:absolute;width:145vw;height:62vw;left:-22vw;top:32vh;border:1px solid rgba(210,187,141,.28);border-radius:50%;transform:rotate(-18deg)}
-.s02 .bg{background:radial-gradient(circle at 50% 42%,rgba(184,143,75,.09),transparent 35%),#070b0d}.chart{position:absolute;width:118vw;height:118vw;left:-9vw;top:10vh;border:1px solid rgba(202,181,137,.4);border-radius:50%;box-shadow:0 0 0 24px rgba(202,181,137,.035),0 0 0 64px rgba(202,181,137,.018)}.chart:before,.chart:after{content:"";position:absolute;border:1px solid rgba(202,181,137,.24);border-radius:50%;inset:14%}.chart:after{inset:30%;border-style:dashed}.cross{position:absolute;left:50%;top:0;width:1px;height:100%;background:rgba(202,181,137,.18)}.cross:after{content:"";position:absolute;left:-59vw;top:50%;width:118vw;height:1px;background:rgba(202,181,137,.18)}
-.s03 .bg{background:linear-gradient(150deg,#14110d,#2a2118 45%,#06090a)}.paper{position:absolute;left:6vw;right:6vw;top:13vh;height:60vh;transform:rotate(-4deg);background:linear-gradient(90deg,#735a3c,#d7c099 12%,#ead8b0 52%,#8a6c47);box-shadow:0 35px 70px #000}.paper:before{content:"";position:absolute;inset:7%;background:repeating-linear-gradient(0deg,transparent 0 25px,rgba(62,48,32,.12) 26px 27px),radial-gradient(circle at 32% 40%,transparent 0 80px,rgba(70,51,31,.2) 81px 83px,transparent 84px)}.ink{position:absolute;left:50%;top:39%;width:90px;height:90px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#111 0 25%,rgba(20,16,12,.7) 48%,transparent 72%);filter:blur(1px)}
-.s04 .bg{background:radial-gradient(ellipse at 50% 44%,rgba(72,105,130,.23),transparent 43%),#03070b}.o{position:absolute;left:50%;top:43%;border:1px solid rgba(218,195,143,.48);border-radius:50%;transform:translate(-50%,-50%)}.o1{width:150vw;height:54vw;transform:translate(-50%,-50%) rotate(-18deg)}.o2{width:122vw;height:43vw;transform:translate(-50%,-50%) rotate(8deg)}.o3{width:92vw;height:32vw;transform:translate(-50%,-50%) rotate(-32deg)}.od{position:absolute;width:8px;height:8px;border-radius:50%;left:72%;top:30%;background:#fff1c6;box-shadow:0 0 22px 6px rgba(255,224,157,.28)}
-.fullphoto{position:absolute;inset:0;background-size:cover;background-position:center}.fullphoto:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.03) 45%,rgba(0,0,0,.9))}.s05 .fullphoto{background-image:url(img/p02_d6e37def63aa.jpg);background-position:center 28%;filter:grayscale(.22) contrast(1.08)}.s06 .bg{background:linear-gradient(180deg,#02070d,#04090f)}.rocket{position:absolute;left:4vw;right:4vw;top:10vh;height:59vh;display:flex;align-items:center;justify-content:center}.rocket img{width:100%;height:100%;object-fit:contain}.s07 .fullphoto{background-image:url(img/p03_a3ae3d2611a6.jpg);background-position:center;filter:contrast(1.1) saturate(.9)}
-.s08 .bg{background:radial-gradient(circle at 50% 44%,rgba(67,131,159,.2),transparent 35%),#02070b}.earth{position:absolute;width:62vw;height:62vw;left:19vw;top:28vh;border-radius:50%;background:radial-gradient(circle at 38% 34%,#afd7df,#4a8499 25%,#173c4d 54%,#031018 72%);box-shadow:0 0 55px rgba(89,170,206,.22),inset -24px -30px 60px rgba(0,0,0,.82)}.eo{position:absolute;left:50%;top:58%;border:1px solid rgba(211,190,145,.46);border-radius:50%;transform:translate(-50%,-50%)}.e1{width:94vw;height:28vw}.e2{width:112vw;height:42vw;transform:translate(-50%,-50%) rotate(17deg)}.e3{width:128vw;height:56vw;transform:translate(-50%,-50%) rotate(-31deg)}.e4{width:140vw;height:70vw;transform:translate(-50%,-50%) rotate(7deg)}.tag{position:absolute;z-index:4;padding:4px 7px;border-left:1px solid #cdb98c;background:rgba(2,7,11,.35);font-size:9px;color:rgba(238,232,220,.78)}.t1{left:70vw;top:43vh}.t2{left:9vw;top:35vh}.t3{left:66vw;top:62vh}.t4{left:13vw;top:67vh}
-.s09 .bg{background:radial-gradient(ellipse at 50% 72%,rgba(45,98,121,.18),transparent 30%),#020509}.earth9{position:absolute;width:46vw;height:46vw;left:27vw;top:34vh;border-radius:50%;background:radial-gradient(circle at 38% 33%,#9dcbd7,#34677c 36%,#0b2532 65%,#010509 73%);box-shadow:0 0 45px rgba(93,173,207,.2),inset -20px -25px 50px rgba(0,0,0,.72)}.tiny{position:absolute;left:50%;top:57%;width:84vw;height:25vw;border:1px solid rgba(208,189,146,.28);border-radius:50%;transform:translate(-50%,-50%) rotate(-12deg)}
-.s10 .bg{background:radial-gradient(ellipse at 68% 43%,rgba(103,141,159,.18),transparent 18%),radial-gradient(ellipse at 35% 70%,rgba(196,169,111,.08),transparent 25%),#02060b}.ship{position:absolute;left:8vw;top:39vh;width:84vw;height:17vw;transform:rotate(-13deg);border-radius:50%;background:linear-gradient(90deg,transparent,#aeb9b9 18%,#eef0e8 48%,#68777b 78%,transparent);box-shadow:0 0 45px rgba(176,208,219,.18)}.ship:before{content:"";position:absolute;left:34%;top:-9vw;width:22vw;height:9vw;border-radius:50% 50% 0 0;border:1px solid rgba(218,198,154,.45);background:rgba(11,25,34,.55)}.ship:after{content:"";position:absolute;left:10%;right:8%;top:49%;height:2px;background:#dfcda7;box-shadow:0 0 16px rgba(223,205,167,.4)}
-.s11 .bg{background:radial-gradient(circle at 50% 37%,rgba(78,116,134,.14),transparent 28%),#02070b}.choices{position:absolute;z-index:12;left:8vw;right:8vw;top:27vh;display:flex;flex-direction:column;gap:10px}.choice{border:1px solid rgba(216,196,154,.25);padding:15px 16px;background:rgba(6,12,17,.54);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);display:flex;justify-content:space-between;align-items:center;min-height:58px}.choice.active{border-color:rgba(216,196,154,.75);background:rgba(20,27,31,.65)}.choice span{font-size:12px;letter-spacing:.1em}.choice small{font-size:9px;color:rgba(238,232,218,.48)}
-.s12 .bg{background:radial-gradient(circle at 50% 40%,rgba(64,107,128,.2),transparent 30%),#02070b}.aearth{position:absolute;width:60vw;height:60vw;left:20vw;top:21vh;border-radius:50%;background:radial-gradient(circle at 38% 34%,#b6d7df,#44788c 30%,#0c2b3b 63%,#01060a 73%);box-shadow:0 0 55px rgba(93,175,209,.22),inset -25px -30px 60px rgba(0,0,0,.78)}.aorbit{position:absolute;left:50%;top:51%;width:118vw;height:38vw;border:1px solid rgba(213,191,147,.45);border-radius:50%;transform:translate(-50%,-50%) rotate(-15deg)}.aship{position:absolute;left:51vw;top:34vh;width:27vw;height:5vw;border-radius:50%;background:linear-gradient(90deg,transparent,#d9dfd8,#6f7c80,transparent);transform:rotate(-18deg);box-shadow:0 0 18px rgba(198,215,220,.2)}
-.start{position:absolute;z-index:50;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 1.2s;background:#04070c;overflow:hidden}.start.hide{opacity:0;pointer-events:none}.startSub{position:absolute;z-index:4;bottom:calc(env(safe-area-inset-bottom,0px) + 34px);left:0;right:0;text-align:center;font-size:11px;letter-spacing:.34em;margin-left:.34em;color:rgba(243,233,210,.9);text-shadow:0 2px 12px rgba(0,0,0,.9);animation:startPulse 2.6s ease-in-out infinite}
-@media(min-width:700px){body{background:#111}#app{width:430px;height:932px;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 100px rgba(0,0,0,.7)}h1{font-size:68px}h2{font-size:50px}.sub{font-size:18px}.desc{font-size:14px}.top{left:28px;right:28px}.copy{left:34px;right:44px}.nav{right:18px}}
-
-/* ===== 完善 v2：入场 stagger ===== */
-.js .copy>*{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.75,.2,1)}
-.js .scene.active .copy>*{opacity:1;transform:none}
-.js .scene.active .copy>*:nth-child(1){transition-delay:.22s}
-.js .scene.active .copy>*:nth-child(2){transition-delay:.34s}
-.js .scene.active .copy>*:nth-child(3){transition-delay:.46s}
-.js .scene.active .copy>*:nth-child(4){transition-delay:.58s}
-.js .scene.active .copy>*:nth-child(5){transition-delay:.7s}
-.js .choices .choice{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.75,.2,1)}
-.js .scene.active .choices .choice{opacity:1;transform:none}
-.js .scene.active .choices .choice:nth-child(1){transition-delay:.4s}
-.js .scene.active .choices .choice:nth-child(2){transition-delay:.52s}
-.js .scene.active .choices .choice:nth-child(3){transition-delay:.64s}
-.js .scene.active .choices .choice:nth-child(4){transition-delay:.76s}
-/* ===== 完善 v2：选项双态可见 ===== */
-.choice{cursor:pointer}
-.choice .opts{display:flex;gap:8px}
-.choice .opts i{font-style:normal;font-size:9px;letter-spacing:.06em;padding:7px 9px;border:1px solid rgba(216,196,154,.22);color:rgba(238,232,220,.42);border-radius:2px;transition:all .3s;white-space:nowrap}
-.choice .opts i.on{border-color:rgba(216,196,154,.85);color:#ecdfbe;background:rgba(216,196,154,.1);box-shadow:0 0 14px rgba(205,185,140,.18)}
-/* ===== 完善 v2：终章操作按钮 ===== */
-.actions{display:flex;gap:12px;margin-top:24px}
-.actions button{flex:1;font-family:inherit;font-size:11px;letter-spacing:.32em;text-indent:.32em;padding:14px 0;color:#e6d6ae;background:rgba(10,15,20,.5);border:1px solid rgba(216,196,154,.45);border-radius:2px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .3s}
-.actions button:active{background:rgba(216,196,154,.16)}
-#save{background:rgba(216,196,154,.13);border-color:rgba(216,196,154,.7)}
-.start{cursor:pointer}
-/* ===== 完善 v2：动效降级 ===== */
-@media (prefers-reduced-motion:reduce){.js .copy>*,.js .choices .choice,.js .scene .pimg{opacity:1!important;transform:none!important;transition:none!important}.scene{transition:none!important}}
-
-/* ===== v3：第11幕视觉重做（保持列表·双选项）===== */
-.s11{display:flex;flex-direction:column;justify-content:center;padding:0 8vw}
-.s11 .copy{position:relative;left:auto;right:auto;top:auto;bottom:auto;z-index:15}
-.s11 .choices{position:relative;left:auto;right:auto;top:auto;z-index:12;margin-top:30px}
-.s11 .stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 20%,rgba(255,255,255,.75),transparent),radial-gradient(1px 1px at 82% 12%,rgba(255,255,255,.5),transparent),radial-gradient(1.5px 1.5px at 68% 30%,rgba(255,240,200,.6),transparent),radial-gradient(1px 1px at 30% 42%,rgba(255,255,255,.45),transparent),radial-gradient(1px 1px at 90% 55%,rgba(255,255,255,.6),transparent),radial-gradient(1.5px 1.5px at 18% 66%,rgba(255,240,200,.5),transparent),radial-gradient(1px 1px at 55% 74%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 74% 86%,rgba(255,255,255,.65),transparent),radial-gradient(1px 1px at 40% 8%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 8% 88%,rgba(255,255,255,.45),transparent);animation:tw 6s ease-in-out infinite}
-@keyframes tw{0%,100%{opacity:.65}50%{opacity:1}}
-.choice{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;border:1px solid rgba(216,196,154,.2);border-radius:8px;background:linear-gradient(180deg,rgba(12,18,25,.62),rgba(6,10,14,.62));-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);min-height:58px;cursor:pointer;transition:border-color .3s,box-shadow .3s}
-.choice:active{border-color:rgba(216,196,154,.55);box-shadow:0 0 24px rgba(205,185,140,.12)}
-.clabel{display:flex;align-items:baseline;gap:10px;flex:none}
-.cnum{font-family:"STKaiti","KaiTi",serif;font-size:11px;color:#cdb98c;letter-spacing:.12em}
-.cname{font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC",serif;font-size:15px;letter-spacing:.4em;color:#f0e9d8;white-space:nowrap}
-.seg{position:relative;display:flex;flex:1;max-width:236px;min-width:0;border:1px solid rgba(216,196,154,.28);border-radius:999px;padding:3px;background:rgba(2,5,8,.5)}
-.seg i{position:relative;z-index:1;flex:1;min-width:0;text-align:center;font-style:normal;font-size:9px;letter-spacing:.04em;padding:9px 2px;color:rgba(238,232,220,.42);transition:color .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.seg i.on{color:#0b0f13;font-weight:700}
-.seg b{position:absolute;z-index:0;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:linear-gradient(180deg,#e6d3a1,#c8ab6e);box-shadow:0 0 18px rgba(205,185,140,.3);transition:transform .38s cubic-bezier(.2,.75,.2,1)}
-.seg.s1 b{transform:translateX(100%)}
-@media (prefers-reduced-motion:reduce){.s11 .stars{animation:none}}
-
-/* v4 图片层：full 全屏底图 / plate 画框 / planet 星球 */
-.pimg{position:absolute;z-index:0;overflow:hidden;background:#0a0f16}
-.pimg img{width:100%;height:100%;object-fit:cover;display:block}
-.pimg.full{inset:0}
-.pimg.full::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,10,.80) 0%,rgba(3,6,10,.30) 38%,rgba(3,6,10,.32) 62%,rgba(3,6,10,.84) 100%)}
-.pimg.plate{left:8vw;right:8vw;top:9vh;height:30vh;border-radius:14px;border:1px solid rgba(216,196,154,.30);box-shadow:0 20px 55px rgba(0,0,0,.55)}
-.pimg.plate::after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(180deg,rgba(3,6,10,.05) 55%,rgba(3,6,10,.45))}
-.pimg.planet{left:50%;top:7vh;width:44vw;height:44vw;transform:translateX(-50%);border-radius:50%;border:1px solid rgba(216,196,154,.35);box-shadow:0 0 70px rgba(160,180,230,.28),0 20px 50px rgba(0,0,0,.5)}
-.js .scene .pimg{opacity:0;transition:opacity 1.4s ease .15s}
-.js .scene.active .pimg{opacity:1}
-
-/* v5：去掉几何图形装饰，星球换成实拍图 */
-
-.ring,.chart,.cross,.o1,.o2,.o3,.od,.eo,.tiny,.ship,.aorbit,.aship,.paper,.ink{display:none!important}
-
-
-
-
-/* v6：修复 s05/s06 在原文件中已损坏的图片数据，换成从中提取出的完整发射实拍 */
-.s05 .fullphoto{background-image:url("img/p04_5f6f188fba71.jpg")!important}
-
-/* v7：3D 自转星球（无缝贴图横滚 + 明暗交界线立体光影） */
-.ball3d{position:absolute;border-radius:50%;overflow:hidden;z-index:0;background:#04070c}
-.bsurf{position:absolute;top:0;left:0;height:100%;width:400%;background-size:50% 100%;background-repeat:repeat-x;animation:pspin var(--spd,28s) linear infinite;animation-play-state:paused;will-change:transform}
-.scene.active .bsurf{animation-play-state:running}
-@keyframes pspin{to{transform:translateX(-50%)}}
-.bshade{position:absolute;inset:0;border-radius:50%;pointer-events:none}
-.tx-moon{background-image:url("img/p05_e24aea1d5ba5.jpg")}
-.tx-mars{background-image:url("img/p06_742b2eabc183.jpg")}
-.tx-earth{background-image:url("img/p07_f185acbba083.jpg")}
-.js .ball3d{opacity:0;transition:opacity 1.4s ease .15s}
-.js .scene.active .ball3d{opacity:1}
-@media (prefers-reduced-motion:reduce){.bsurf{animation:none}}
-
-/* v8：Blender 写实级——大气辉光 + 独立云层 + 夜晚城市灯光 */
-.at-e{box-shadow:-7px 1px 12px 2px rgba(165,210,255,.6),0 0 34px 7px rgba(85,145,255,.26),0 0 70px 18px rgba(70,120,255,.10)}
-.at-m{box-shadow:-5px 1px 10px 1px rgba(215,225,245,.32),0 0 28px 6px rgba(175,195,235,.15)}
-.at-ma{box-shadow:-6px 1px 11px 1px rgba(255,195,155,.4),0 0 30px 6px rgba(255,150,110,.18)}
-.bcloud{position:absolute;top:0;left:0;height:100%;width:400%;background-size:50% 100%;background-repeat:repeat-x;opacity:.9;animation:pspin var(--cspd,34s) linear infinite;animation-play-state:paused;will-change:transform}
-.scene.active .bcloud{animation-play-state:running}
-
-
-.scene.active 
-.tx-cloud{background-image:url("img/p08_6a3ac92a5dec.webp")}
-
-@media (prefers-reduced-motion:reduce){.bcloud,}
-
-/* v9：小红书木疙瘩H5模板语言——顶部条形码/印章按钮/金色横幅/卡片正文（图片与整体画风不变） */
-
-
-.sealmark{position:absolute;z-index:14;top:calc(max(18px,env(safe-area-inset-top)) + 36px);left:7vw;width:38px;height:38px;border-radius:7px;background:linear-gradient(150deg,#b23a2c,#7e241a);color:#f7ecd4;font-family:"STKaiti","KaiTi",serif;font-size:22px;line-height:38px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.55),inset 0 0 0 2px rgba(247,236,212,.25);opacity:0;transform:rotate(-5deg);transition:opacity 1s ease .55s;pointer-events:none}
-.scene.active .sealmark{opacity:.94}
-.scene h1{font-family:"STXingkai","Xingkai SC","HanziPen SC","STKaiti","KaiTi","Noto Serif CJK SC",serif}
-.scene h2{font-family:"STXingkai","Xingkai SC","HanziPen SC","STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC",serif}
-.copy .desc{background:rgba(4,8,13,.55);border:1px solid rgba(216,196,154,.28);border-radius:10px;padding:12px 14px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.s01 .sub,.s12 .sub{display:inline-block;margin-top:14px;padding:2px 6px;font-size:4vw;letter-spacing:.3em;color:#e6c87e;background:none;border:none;box-shadow:none;text-shadow:0 2px 14px rgba(0,0,0,.85);transform:none;font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC",serif}
-.s11 .copy{top:10.5vh;bottom:auto;left:8vw;right:8vw;text-align:center}
-.s11 .copy h2{transform:none}
-.s11 .copy .kicker{margin-bottom:8px}
-.s11 .choices{top:35vh}
-.s11 .choice{border-radius:14px}
-.seg i::before{content:"A";display:inline-block;width:15px;height:15px;line-height:15px;border-radius:50%;border:1px solid rgba(216,196,154,.55);font-size:8px;font-style:normal;margin-right:4px;color:#e6d6ae;vertical-align:1px}
-.seg i:nth-of-type(2)::before{content:"B"}
-.s12 .actions{justify-content:center;gap:26px}
-.s12 .actions button{flex:none;width:76px;height:76px;border-radius:50%;padding:0 8px;font-size:12px;letter-spacing:.14em;text-indent:0;line-height:1.6;background:radial-gradient(circle at 32% 28%,#c04534,#8e2a1e 72%);border:none;color:#f7ecd4;box-shadow:0 4px 16px rgba(0,0,0,.6),inset 0 0 0 2px rgba(247,236,212,.28)}
-@media (prefers-reduced-motion:reduce){.sealmark{transition:none}}
-
-/* v10：星球质感与联动升级——JS 驱动旋转（替代 CSS 匀速动画），支持手指拖拽旋转+惯性 */
-.bsurf,.bcloud,
-.ball3d{cursor:grab;touch-action:pan-y}
-.bshade{background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.16),rgba(255,255,255,0) 40%),radial-gradient(circle at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.34) 76%,rgba(0,0,0,.82) 100%),linear-gradient(100deg,rgba(0,0,0,0) 40%,rgba(20,30,60,.28) 58%,rgba(4,6,12,.72) 74%,rgba(1,2,5,.95) 100%)}
-@media (prefers-reduced-motion:reduce){.ball3d{cursor:default}}
-
-/* v11：修复方形框——云层/夜灯改用真透明 WebP，彻底移除 mix-blend-mode（iOS Safari 下混合模式会冲破球体圆形裁剪） */
-.ball3d{isolation:isolate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-#lb{position:fixed;inset:0;z-index:200;background:rgba(2,3,7,.95);display:none;align-items:center;justify-content:center;flex-direction:column}
-#lb.open{display:flex}
-#lb img{max-width:92vw;max-height:72vh;object-fit:contain;border-radius:8px;border:1px solid rgba(230,200,126,.3)}
-#lbcap{margin-top:14px;color:#ecdfbe;font-size:13px;letter-spacing:.12em}
-#lbx{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(230,200,126,.55);background:rgba(0,0,0,.4);color:#e6c87e;font-size:20px}
-#lbp,#lbn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(230,200,126,.55);background:rgba(0,0,0,.4);color:#e6c87e;font-size:22px}
-#lbp{left:10px}#lbn{right:10px}
-
-/* v13:图片完整呈现 + 横滑长廊 */
-.s02 .pimg img,.s03 .pimg img,.s04 .pimg img{object-fit:contain}
-.s02 .plate,.s03 .plate{height:40vh}
-.s05 .fullphoto,.s07 .fullphoto{background-size:contain;background-repeat:no-repeat;background-position:center 12vh;background-color:#04060a}
-
-
-
-
-
-
-
-
-
-/* v14:问答幕布局修复——清除旧绝对定位残留的偏移，恢复 flex 流式排布 */
-.s11 .copy{top:auto;left:auto;right:auto}
-.s11 .choices{top:auto;left:auto;right:auto}
-
-/* v17:照片条（横滑，每张完整呈现）+ 新增两幕 */
-.pstrip{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 10px}
-.pstrip::-webkit-scrollbar{display:none}
-.pitem{flex:0 0 100%;scroll-snap-align:center;display:flex;flex-direction:column;min-height:0;margin:0}
-.pitem img{width:100%;flex:1;min-height:0;object-fit:contain;border-radius:12px;border:1px solid rgba(230,200,126,.35);background:#0a0d14}
-.pitem figcaption{flex:none;margin-top:8px;text-align:center;color:#d8c9a3;font-size:11px;letter-spacing:.2em}
-.plate-strip{position:absolute;left:0;right:0;top:8vh;height:42vh;z-index:12}
-.rocket-strip{position:absolute;left:0;right:0;top:9vh;height:54vh;z-index:12}
-.full-strip{position:absolute;inset:0;z-index:12;align-items:center;padding-top:10vh;padding-bottom:26vh}
-.full-strip .pitem{flex-basis:88%}
-.s10-strip{position:absolute;left:0;right:0;top:13vh;height:42vh;z-index:12}
-.ncopy{position:absolute;z-index:15;left:8vw;right:8vw;top:10vh;text-shadow:0 2px 18px #000}
-.gsub2{margin-top:10px;font-size:4vw;letter-spacing:.16em;color:#e6c87e;font-family:"STKaiti","KaiTi","FZKai-Z03","Noto Serif CJK SC",serif}
-.nstrip{position:absolute;left:0;right:0;top:37vh;bottom:8vh;z-index:12}
-.nstrip .pitem{flex-basis:82%}
-
-/* v20:启动封面重设计 */
-.startStars{position:absolute;inset:0;background:radial-gradient(60% 34% at 50% 52%,rgba(2,4,8,.55) 0%,rgba(2,4,8,0) 70%)}
-.startInner{position:relative;z-index:2;text-align:center}
-.startTitleV{font-size:30vw;line-height:1.32;letter-spacing:0;font-family:"STSong","Songti SC","Noto Serif CJK SC","Source Han Serif SC",serif;font-weight:600;background:linear-gradient(175deg,#faf0c0 0%,#eed88f 30%,#d9b45f 55%,#f6e2a4 78%,#c39a48 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 26px rgba(0,0,0,.65)) drop-shadow(0 0 46px rgba(230,200,126,.28))}
-.startSeal{position:absolute;top:-4%;right:-14%;width:15vw;height:15vw;max-width:64px;max-height:64px;
-background:linear-gradient(160deg,#b23a2e,#8a281f);border-radius:18%;color:#f7ecd4;
-font-size:6.4vw;letter-spacing:.1em;font-family:"STKaiti","KaiTi",serif;
-display:flex;align-items:center;justify-content:center;
-box-shadow:0 6px 22px rgba(0,0,0,.55),inset 0 0 0 2px rgba(247,236,212,.35);
-transform:rotate(6deg)}
-.startLine{width:56px;height:1px;margin:26px auto 0;background:linear-gradient(90deg,transparent,#e6c87e,transparent)}
-.startSub{margin-top:18px;font-size:11px;letter-spacing:.34em;margin-left:.34em;color:rgba(238,230,210,.75);
-animation:startPulse 2.6s ease-in-out infinite}
-@keyframes startPulse{0%,100%{opacity:.45}50%{opacity:1}}
-
-/* v22:封面美化 */
-.startBg{position:absolute;inset:-4%;background:url(img/p09_7a71f6bc2ca0.jpg) center/cover no-repeat;
-animation:startZoom 26s ease-in-out infinite alternate}
-@keyframes startZoom{from{transform:scale(1)}to{transform:scale(1.09)}}
-.startFrame{position:absolute;inset:14px;z-index:3;pointer-events:none;
-border:1px solid rgba(230,200,126,.42);border-radius:3px}
-.startFrame::after{content:"";position:absolute;inset:6px;border:1px solid rgba(230,200,126,.2);border-radius:2px}
-.startSeal{box-shadow:0 6px 22px rgba(0,0,0,.55),inset 0 0 0 2px rgba(247,236,212,.4)}
-.startSub{color:rgba(243,233,210,.85);text-shadow:0 2px 10px rgba(0,0,0,.8)}
-
-/* v23:封面竖排题字 */
-.startSide{position:absolute;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;
-font-size:3.4vw;letter-spacing:.5em;color:rgba(238,226,196,.78);
-font-family:"STKaiti","KaiTi","Noto Serif CJK SC",serif;text-shadow:0 2px 12px rgba(0,0,0,.85);z-index:4}
-.startSide.left{left:-16vw}
-.startSide.right{right:-16vw}
-.start::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;z-index:3;pointer-events:none;background:linear-gradient(to top,rgba(2,4,8,.55),rgba(2,4,8,0))}.quizbg{background:url(img/p10_8bceef980e6b.jpg) center/cover no-repeat}.scene .copy>*{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1)}.scene.active .copy>*:nth-child(1){transition-delay:.15s}.scene.active .copy>*:nth-child(2){transition-delay:.28s}.scene.active .copy>*:nth-child(3){transition-delay:.41s}.scene.active .copy>*:nth-child(4){transition-delay:.54s}.scene.active .copy>*:nth-child(n+5){transition-delay:.67s}.scene.active .copy>*{opacity:1;transform:none}.scene .choices .choice{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1)}.scene.active .choices .choice:nth-child(1){transition-delay:.35s}.scene.active .choices .choice:nth-child(2){transition-delay:.47s}.scene.active .choices .choice:nth-child(3){transition-delay:.59s}.scene.active .choices .choice:nth-child(4){transition-delay:.71s}.scene.active .choices .choice{opacity:1;transform:none}.hint{animation:hintFloat 2.4s ease-in-out infinite}@keyframes hintFloat{0%,100%{transform:translateX(-50%) translateY(0);opacity:.85}50%{transform:translateX(-50%) translateY(-7px);opacity:1}}.startSub{animation:startPulse 2.2s ease-in-out infinite}@keyframes startPulse{0%,100%{opacity:.65}50%{opacity:1}}</style></head><body><div id="app">
-<div class="top"><div class="brand">问天</div><div class="rule"></div><div class="count" id="count">01 / 14</div></div><div class="nav" id="nav"></div>
-<section class="scene s01 active"><div class="sealmark" aria-hidden="true">问</div><div class="bg"><div class="pimg full"><img src="img/p11_c0ceb67ffe9f.jpg" alt="地球"></div><div class="ring"></div></div><div class="copy"><div class="kicker">01 / 天启</div><h1>问天</h1><div class="sub">仰望星空，问天的起点</div><div class="desc">一颗星，穿过漫长的黑暗。<br>从仰望开始，人类第一次把目光投向宇宙。</div></div></section>
-<section class="scene s02"><div class="bg"><div class="pstrip plate-strip"><figure class="pitem"><img src="img/p12_cd10a3f30be0.jpg" alt="浑天仪" data-cap="浑天仪" loading="lazy"><figcaption>浑天仪</figcaption></figure><figure class="pitem"><img src="img/p13_ba6cef1060ba.jpg" alt="观星台浑仪" data-cap="观星台浑仪" loading="lazy"><figcaption>观星台浑仪</figcaption></figure></div><div class="chart"><div class="cross"></div></div></div><div class="copy"><div class="kicker">02 / 仰观星河</div><h2>古人有星图</h2><div class="sub">把天空写进秩序，也写进想象</div><div class="desc">星宿、方位、节律与四时。<br>古人用自己的方式理解头顶这片天空。</div></div></section>
-<section class="scene s03"><div class="bg"><div class="pstrip plate-strip"><figure class="pitem"><img src="img/p14_2352bd39df6e.jpg" alt="《天文略解》古籍" data-cap="《天文略解》古籍" loading="lazy"><figcaption>《天文略解》古籍</figcaption></figure><figure class="pitem"><img src="img/p15_934df327ff0c.jpg" alt="古代星图" data-cap="古代星图" loading="lazy"><figcaption>古代星图</figcaption></figure><figure class="pitem"><img src="img/p16_bc70a6dedeaf.jpg" alt="敦煌飞天壁画" data-cap="敦煌飞天壁画" loading="lazy"><figcaption>敦煌飞天壁画</figcaption></figure></div><div class="paper"></div><div class="ink"></div></div><div class="copy"><div class="kicker">03 / 古脉溯源</div><h2>星落成墨</h2><div class="sub">古籍、星图与千年的观天记录</div><div class="desc">当一颗星落在纸上，天上的秩序便有了可以传承的形状。</div></div></section>
-<section class="scene s04"><div class="bg"><div class="pstrip full-strip"><figure class="pitem"><img src="img/p17_e66b668e50ca.jpg" alt="敦煌星图" data-cap="敦煌星图" loading="lazy"><figcaption>敦煌星图</figcaption></figure><figure class="pitem"><img src="img/p18_ec375d4f0228.jpg" alt="二十八星宿图" data-cap="二十八星宿图" loading="lazy"><figcaption>二十八星宿图</figcaption></figure><figure class="pitem"><img src="img/p19_b2b765755180.jpg" alt="璇玑图" data-cap="璇玑图" loading="lazy"><figcaption>璇玑图</figcaption></figure><figure class="pitem"><img src="img/p20_f4dab6ff7908.jpg" alt="天象列次分野之图" data-cap="天象列次分野之图" loading="lazy"><figcaption>天象列次分野之图</figcaption></figure></div><div class="o o1"></div><div class="o o2"></div><div class="o o3"></div><div class="od"></div></div><div class="copy"><div class="kicker">04 / 穿越千年</div><h2>星图没有消失</h2><div class="sub">只是我们看星星的方式变了</div><div class="desc">一条墨线延伸成轨道。<br>从古人的星图，走向今天的航天时代。</div></div></section>
-<section class="scene s05n"><div class="bg"></div><div class="ncopy"><div class="kicker">05 / 青铜观天</div><h2>以器测天</h2><div class="gsub2">浑仪 · 经纬 · 璇玑</div><div class="desc">青铜铸成的精密。<br>每一件仪器，都是古人触摸星空的手。</div></div><div class="pstrip nstrip"><figure class="pitem"><img src="img/p21_76ee0536178c.jpg" alt="地平经纬仪 · 玑衡抚辰仪" data-cap="地平经纬仪 · 玑衡抚辰仪" loading="lazy"><figcaption>地平经纬仪 · 玑衡抚辰仪</figcaption></figure><figure class="pitem"><img src="img/p22_7c270723e397.jpg" alt="地平经仪 · 象限仪" data-cap="地平经仪 · 象限仪" loading="lazy"><figcaption>地平经仪 · 象限仪</figcaption></figure><figure class="pitem"><img src="img/p23_cebb8d4217a4.jpg" alt="天体仪 · 纪限仪" data-cap="天体仪 · 纪限仪" loading="lazy"><figcaption>天体仪 · 纪限仪</figcaption></figure><figure class="pitem"><img src="img/p24_8bcf70c29e58.jpg" alt="赤道经纬仪 · 黄道经纬仪" data-cap="赤道经纬仪 · 黄道经纬仪" loading="lazy"><figcaption>赤道经纬仪 · 黄道经纬仪</figcaption></figure></div></section>
-
-<section class="scene s05"><div class="bg"><div class="fullphoto"></div></div><div class="copy"><div class="kicker">06 / 栉风沐雨</div><h2>百年求索</h2><div class="sub">把真实的历史留在画面里</div><div class="desc">从钱学森等先辈，到无数无名的科研工作者。<br>中国航天从这里一步步走来。</div></div></section>
-<section class="scene s06"><div class="bg"><div class="pstrip rocket-strip"><figure class="pitem"><img src="img/p25_a607b8dd6a8a.jpg" alt="长征火箭夜间发射" data-cap="长征火箭夜间发射" loading="lazy"><figcaption>长征火箭夜间发射</figcaption></figure><figure class="pitem"><img src="img/p26_25e311267b11.jpg" alt="长征系列火箭型谱" data-cap="长征系列火箭型谱" loading="lazy"><figcaption>长征系列火箭型谱</figcaption></figure></div></div><div class="copy"><div class="kicker">07 / 从零到一</div><h2>没有一步登天</h2><div class="sub">东方红一号 · 长征系列</div><div class="desc">从第一颗人造卫星，到一代代运载火箭。<br>每一次高度，都建立在前一次坚持之上。</div></div></section>
-<section class="scene s07"><div class="bg"><div class="fullphoto"></div></div><div class="copy"><div class="kicker">08 / 天宫揽月</div><h2>进入太空</h2><div class="sub">穿出大气层，看见地球</div><div class="desc">火焰熄灭之后，地球开始缓慢旋转。<br>我们第一次真正站在星球之外看它。</div></div></section>
-<section class="scene s08"><div class="bg"><div class="ball3d at-m" style="left:50%;top:7vh;width:44vw;height:44vw;transform:translateX(-50%);--spd:36s"><div class="bsurf tx-moon"></div><div class="bshade"></div></div><div class="ball3d at-e" style="left:19vw;top:28vh;width:62vw;height:62vw;--spd:24s;--cspd:33s"><div class="bsurf tx-earth"></div><div class="bcloud tx-cloud"></div><div class="bshade"></div></div><div class="eo e1"></div><div class="eo e2"></div><div class="eo e3"></div><div class="eo e4"></div><div class="tag t1">天宫</div><div class="tag t2">北斗</div><div class="tag t3">天问</div><div class="tag t4">嫦娥</div></div><div class="copy"><div class="kicker">09 / 盛世问天</div><h2>新的星图</h2><div class="sub">天宫 · 嫦娥 · 天问 · 北斗</div><div class="desc">古代星图记录我们仰望的天空。<br>今天，它正在被中国的航天器重新绘制。</div></div></section>
-<section class="scene s10n"><div class="bg"></div><div class="ncopy"><div class="kicker">10 / 问天足迹</div><h2>一步一印</h2><div class="gsub2">卫星 · 飞船 · 月球车</div><div class="desc">从东方红到玉兔号。<br>每一步，都算数。</div></div><div class="pstrip nstrip"><figure class="pitem"><img src="img/p27_44032f236dff.jpg" alt="东方红一号卫星" data-cap="东方红一号卫星" loading="lazy"><figcaption>东方红一号卫星</figcaption></figure><figure class="pitem"><img src="img/p28_668fadbea26e.jpg" alt="返回舱实物" data-cap="返回舱实物" loading="lazy"><figcaption>返回舱实物</figcaption></figure><figure class="pitem"><img src="img/p29_eb25640259be.jpg" alt="玉兔号月球车" data-cap="玉兔号月球车" loading="lazy"><figcaption>玉兔号月球车</figcaption></figure><figure class="pitem"><img src="img/p30_3c3708342e32.jpg" alt="神舟飞船" data-cap="神舟飞船" loading="lazy"><figcaption>神舟飞船</figcaption></figure></div></section>
-
-<section class="scene s09"><div class="bg"><div class="ball3d at-ma" style="left:50%;top:7vh;width:44vw;height:44vw;transform:translateX(-50%);--spd:30s"><div class="bsurf tx-mars"></div><div class="bshade"></div></div><div class="ball3d at-e" style="left:27vw;top:34vh;width:46vw;height:46vw;--spd:26s;--cspd:37s"><div class="bsurf tx-earth"></div><div class="bcloud tx-cloud"></div><div class="bshade"></div></div><div class="tiny"></div></div><div class="copy"><div class="kicker">11 / 回望</div><h2>从观星到深空</h2><div class="sub">我们已经走得很远</div><div class="desc">镜头慢慢拉远。<br>所有宏大的航迹，最终都回到这颗蓝色星球。</div></div></section>
-<section class="scene s10"><div class="bg"><div class="pimg full"><img src="img/p31_abd299524b46.jpg" alt="星云"></div><div class="ship"></div><div class="ring" style="top:25vh;opacity:.2;transform:rotate(8deg)"></div></div><div class="pstrip s10-strip"><figure class="pitem"><img src="img/p32_431c8a0d6f02.jpg" alt="航天科技馆" data-cap="航天科技馆" loading="lazy"><figcaption>航天科技馆</figcaption></figure><figure class="pitem"><img src="img/p33_98636b65e226.jpg" alt="两弹一星伟大征程" data-cap="两弹一星伟大征程" loading="lazy"><figcaption>两弹一星伟大征程</figcaption></figure><figure class="pitem"><img src="img/p34_a561e84e1ead.jpg" alt="北斗组网建设" data-cap="北斗组网建设" loading="lazy"><figcaption>北斗组网建设</figcaption></figure><figure class="pitem"><img src="img/p35_bf4817131611.jpg" alt="航天科学展厅" data-cap="航天科学展厅" loading="lazy"><figcaption>航天科学展厅</figcaption></figure><figure class="pitem"><img src="img/p36_9a3d1547e8e0.jpg" alt="上古星空神话" data-cap="上古星空神话" loading="lazy"><figcaption>上古星空神话</figcaption></figure><figure class="pitem"><img src="img/p37_c2f79caf973f.jpg" alt="中古天文仪器文明" data-cap="中古天文仪器文明" loading="lazy"><figcaption>中古天文仪器文明</figcaption></figure></div><div class="copy"><div class="kicker">12 / 星河共赴</div><h2>未来没有答案</h2><div class="sub">下一段航程，由你来定义</div><div class="desc">深空仍然辽阔。<br>下一章，不只是观看，而是参与。</div></div></section>
-<
-<section class="scene s11"><div class="bg quizbg"><div class="stars"></div><div class="ring" style="top:18vh;opacity:.16"></div></div><div class="copy"><div class="kicker">13 / 我的未来航天任务</div><h2>选择你的航程</h2><div class="desc">点击切换每项的两种可能，生成属于你的未来任务。</div></div><div class="choices"><div class="choice" data-g="role" role="button" tabindex="0" aria-label="选择身份"><div class="clabel"><span class="cnum">01</span><span class="cname">身份</span></div><div class="seg"><i class="on">未来航天员</i><i>深空科学家</i><b></b></div></div><div class="choice" data-g="dest" role="button" tabindex="0" aria-label="选择目的地"><div class="clabel"><span class="cnum">02</span><span class="cname">目的地</span></div><div class="seg"><i class="on">月球基地</i><i>火星轨道</i><b></b></div></div><div class="choice" data-g="ship" role="button" tabindex="0" aria-label="选择飞船"><div class="clabel"><span class="cnum">03</span><span class="cname">飞船</span></div><div class="seg"><i class="on">深空探索舰</i><i>轨道母船</i><b></b></div></div><div class="choice" data-g="mission" role="button" tabindex="0" aria-label="选择任务"><div class="clabel"><span class="cnum">04</span><span class="cname">任务</span></div><div class="seg"><i class="on">寻找水源</i><i>观测宇宙</i><b></b></div></div></div></section>
-<section class="scene s12"><div class="sealmark" aria-hidden="true">天</div><div class="bg"><div class="ball3d at-e" style="left:20vw;top:21vh;width:60vw;height:60vw;--spd:22s;--cspd:31s"><div class="bsurf tx-earth"></div><div class="bcloud tx-cloud"></div><div class="bshade"></div></div><div class="aorbit"></div><div class="aship"></div></div><div class="copy"><div class="kicker">14 / 我的宇宙档案</div><h2>星河共赴</h2><div class="sub">你的未来航天档案</div><div class="desc" id="meta">未来航天员 · 月球基地 · 深空探索舰 · 寻找水源</div><div class="actions"><button id="again" type="button">重新选择</button><button id="save" type="button">保存档案卡</button></div></div></section>
-<div class="hint" id="hint"><b>↑</b>上滑进入下一章</div><div class="start" id="start" role="button" tabindex="0" aria-label="开始探索"><div class="startBg" aria-hidden="true"></div><div class="startSub">轻触屏幕，开始探索</div></div></div></div>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>问天 · 从仰望到星河</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:#070b16;color:#e8e2d4;font-family:"PingFang SC","Microsoft YaHei",serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.scene{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;z-index:1;padding:8vh 7vw;scroll-snap-align:start}
+html{scroll-snap-type:y proximity}
+.kicker{font-size:11px;letter-spacing:.35em;color:#c9a86a;margin-bottom:14px}
+h1.cover{font-size:64px;letter-spacing:.2em;color:#f5edd8;text-shadow:0 0 40px rgba(201,168,106,.35);animation:breathe 4s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.92;transform:scale(1)}50%{opacity:1;transform:scale(1.02)}}
+.cover-sub{margin-top:18px;font-size:14px;letter-spacing:.5em;color:#9a8f76}
+.cover-hint{position:absolute;bottom:6vh;font-size:12px;letter-spacing:.3em;color:#8a7f66;animation:hintfloat 2.6s ease-in-out infinite}
+@keyframes hintfloat{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(-8px);opacity:1}}
+.unit-tag{font-size:12px;letter-spacing:.4em;color:#c9a86a;margin-bottom:10px}
+.unit-title{font-size:42px;letter-spacing:.15em;color:#f5edd8;margin-bottom:12px}
+.unit-desc{font-size:13px;letter-spacing:.2em;color:#9a8f76;margin-bottom:8px}
+.unit-range{font-size:12px;letter-spacing:.3em;color:#6f6653}
+.ex-num{font-size:13px;letter-spacing:.4em;color:#c9a86a;margin-bottom:8px}
+.ex-unit{font-size:11px;letter-spacing:.3em;color:#6f6653;margin-bottom:16px}
+.ex-title{font-size:30px;letter-spacing:.1em;color:#f5edd8;margin-bottom:10px;text-align:center}
+.ex-desc{font-size:13px;line-height:2;color:#a89c82;text-align:center;margin-bottom:22px;max-width:88vw}
+.ex-img{width:92vw;max-width:520px;border-radius:10px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.55);border:1px solid rgba(201,168,106,.18)}
+.ex-img img{width:100%;display:block}
+.end-title{font-size:34px;letter-spacing:.2em;color:#f5edd8;margin-bottom:14px}
+.end-sub{font-size:13px;letter-spacing:.3em;color:#9a8f76;line-height:2.4;text-align:center}
+.fade{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.fade.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.25s}.d3{transition-delay:.4s}.d4{transition-delay:.55s}
+</style></head><body>
+<canvas id="stars"></canvas>
+<section class="scene"><div class="kicker fade">中 国 航 天 主 题 展</div><h1 class="cover fade d1">问天</h1><div class="cover-sub fade d2">从 仰 望 到 星 河</div><div class="cover-hint">上 滑 开 始 观 展 ↓</div></section>
+<section class="scene"><div class="unit-tag fade">第一单元</div><div class="unit-title fade d1">古脉溯源</div><div class="unit-desc fade d2">从神话到星图 · 仰望的起点</div><div class="unit-range fade d3">展项 01–06</div></section>
+<section class="scene"><div class="ex-num fade">01 / 24</div><div class="ex-unit fade d1">第一单元 · 古脉溯源</div><div class="ex-title fade d2">上古宇宙神话</div><div class="ex-desc fade d3">羲和浴日 · 望舒逐月 · 上古星空崇拜</div><div class="ex-img fade d4"><img src="img/p16_bc70a6dedeaf.jpg" alt="上古宇宙神话" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">02 / 24</div><div class="ex-unit fade d1">第一单元 · 古脉溯源</div><div class="ex-title fade d2">屈原《天问》</div><div class="ex-desc fade d3">千古问天诗篇</div><div class="ex-img fade d4"><img src="img/p09_7a71f6bc2ca0.jpg" alt="屈原《天问》" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">03 / 24</div><div class="ex-unit fade d1">第一单元 · 古脉溯源</div><div class="ex-title fade d2">先秦星学体系</div><div class="ex-desc fade d3">《甘石星经》 · 二十八星宿体系 · 古代星官文化</div><div class="ex-img fade d4"><img src="img/p17_e66b668e50ca.jpg" alt="先秦星学体系" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">04 / 24</div><div class="ex-unit fade d1">第一单元 · 古脉溯源</div><div class="ex-title fade d2">中古天文仪器</div><div class="ex-desc fade d3">浑天仪 · 简仪 · 圭表全息动态</div><div class="ex-img fade d4"><img src="img/p12_cd10a3f30be0.jpg" alt="中古天文仪器" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">05 / 24</div><div class="ex-unit fade d1">第一单元 · 古脉溯源</div><div class="ex-title fade d2">传统宇宙观美学</div><div class="ex-desc fade d3">天圆地方 · 水墨星图 · 敦煌飞天星轨纹样</div><div class="ex-img fade d4"><img src="img/p20_f4dab6ff7908.jpg" alt="传统宇宙观美学" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">06 / 24</div><div class="ex-unit fade d1">第一单元 · 古脉溯源</div><div class="ex-title fade d2">观星动态投影</div><div class="ex-desc fade d3">古人观星场景动态</div><div class="ex-img fade d4"><img src="img/p10_8bceef980e6b.jpg" alt="观星动态投影" loading="lazy"></div></section>
+<section class="scene"><div class="unit-tag fade">第二单元</div><div class="unit-title fade d1">百年求索</div><div class="unit-desc fade d2">从零到一 · 拓荒者的足迹</div><div class="unit-range fade d3">展项 07–12</div></section>
+<section class="scene"><div class="ex-num fade">07 / 24</div><div class="ex-unit fade d1">第二单元 · 百年求索</div><div class="ex-title fade d2">近代科学启蒙</div><div class="ex-desc fade d3">西方天文学传入 · 国人星空探索觉醒</div><div class="ex-img fade d4"><img src="img/p14_2352bd39df6e.jpg" alt="近代科学启蒙" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">08 / 24</div><div class="ex-unit fade d1">第二单元 · 百年求索</div><div class="ex-title fade d2">1950–1970 拓荒创业阶段</div><div class="ex-desc fade d3">第一代航天人 · 科研纪实影像 · 史料手稿</div><div class="ex-img fade d4"><img src="img/p02_d6e37def63aa.jpg" alt="1950–1970 拓荒创业阶段" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">09 / 24</div><div class="ex-unit fade d1">第二单元 · 百年求索</div><div class="ex-title fade d2">两弹一星</div><div class="ex-desc fade d3">奋斗历史资料 · 功勋科学家事迹</div><div class="ex-img fade d4"><img src="img/p37_c2f79caf973f.jpg" alt="两弹一星" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">10 / 24</div><div class="ex-unit fade d1">第二单元 · 百年求索</div><div class="ex-title fade d2">东方红一号</div><div class="ex-desc fade d3">发射背景 · 第一颗人造卫星</div><div class="ex-img fade d4"><img src="img/p27_44032f236dff.jpg" alt="东方红一号" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">11 / 24</div><div class="ex-unit fade d1">第二单元 · 百年求索</div><div class="ex-title fade d2">航天技术累计</div><div class="ex-desc fade d3">火箭迭代 · 测控体系建立 · 航天人才体系建设</div><div class="ex-img fade d4"><img src="img/p26_25e311267b11.jpg" alt="航天技术累计" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">12 / 24</div><div class="ex-unit fade d1">第二单元 · 百年求索</div><div class="ex-title fade d2">星空隧道</div><div class="ex-desc fade d3">穿越星海 · 步入百年</div><div class="ex-img fade d4"><img src="img/p31_abd299524b46.jpg" alt="星空隧道" loading="lazy"></div></section>
+<section class="scene"><div class="unit-tag fade">第三单元</div><div class="unit-title fade d1">盛世问天</div><div class="unit-desc fade d2">从跟跑到领跑 · 星辰大海</div><div class="unit-range fade d3">展项 13–18</div></section>
+<section class="scene"><div class="ex-num fade">13 / 24</div><div class="ex-unit fade d1">第三单元 · 盛世问天</div><div class="ex-title fade d2">2003 载人航天突破</div><div class="ex-desc fade d3">神舟五号 · 首次载人飞天</div><div class="ex-img fade d4"><img src="img/p03_a3ae3d2611a6.jpg" alt="2003 载人航天突破" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">14 / 24</div><div class="ex-unit fade d1">第三单元 · 盛世问天</div><div class="ex-title fade d2">嫦娥探月工程</div><div class="ex-desc fade d3">绕月 · 落月 · 探月 · 全流程全息演示</div><div class="ex-img fade d4"><img src="img/p29_eb25640259be.jpg" alt="嫦娥探月工程" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">15 / 24</div><div class="ex-unit fade d1">第三单元 · 盛世问天</div><div class="ex-title fade d2">北斗组网</div><div class="ex-desc fade d3">北斗全球星座布局 · 自主可控卫星系统</div><div class="ex-img fade d4"><img src="img/p35_bf4817131611.jpg" alt="北斗组网" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">16 / 24</div><div class="ex-unit fade d1">第三单元 · 盛世问天</div><div class="ex-title fade d2">天问一号火星探测</div><div class="ex-desc fade d3">奔向火星 · 行星际探测</div><div class="ex-img fade d4"><img src="img/p06_742b2eabc183.jpg" alt="天问一号火星探测" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">17 / 24</div><div class="ex-unit fade d1">第三单元 · 盛世问天</div><div class="ex-title fade d2">天宫空间站</div><div class="ex-desc fade d3">全域AR交互 · 全息空间站结构 · 在轨生活</div><div class="ex-img fade d4"><img src="img/p30_3c3708342e32.jpg" alt="天宫空间站" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">18 / 24</div><div class="ex-unit fade d1">第三单元 · 盛世问天</div><div class="ex-title fade d2">航天综合成就合集</div><div class="ex-desc fade d3">火箭迭代 · 太空育种 · 空间科学</div><div class="ex-img fade d4"><img src="img/p33_98636b65e226.jpg" alt="航天综合成就合集" loading="lazy"></div></section>
+<section class="scene"><div class="unit-tag fade">第四单元</div><div class="unit-title fade d1">未来共创</div><div class="unit-desc fade d2">从现在到未来 · 星河共赴</div><div class="unit-range fade d3">展项 19–24</div></section>
+<section class="scene"><div class="ex-num fade">19 / 24</div><div class="ex-unit fade d1">第四单元 · 未来共创</div><div class="ex-title fade d2">航天未来规划</div><div class="ex-desc fade d3">载人登月计划 · 深空探测 · 星际探索蓝图</div><div class="ex-img fade d4"><img src="img/p11_c0ceb67ffe9f.jpg" alt="航天未来规划" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">20 / 24</div><div class="ex-unit fade d1">第四单元 · 未来共创</div><div class="ex-title fade d2">航天精神科普</div><div class="ex-desc fade d3">航天精神科普 · 青年使命解读</div><div class="ex-img fade d4"><img src="img/p28_668fadbea26e.jpg" alt="航天精神科普" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">21 / 24</div><div class="ex-unit fade d1">第四单元 · 未来共创</div><div class="ex-title fade d2">共创互动</div><div class="ex-desc fade d3">未来航天器 · 未来星际场景 · 国风星空画作</div><div class="ex-img fade d4"><img src="img/p36_9a3d1547e8e0.jpg" alt="共创互动" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">22 / 24</div><div class="ex-unit fade d1">第四单元 · 未来共创</div><div class="ex-title fade d2">太阳直播秀</div><div class="ex-desc fade d3">逐日之旅 · 恒星之光</div><div class="ex-img fade d4"><img src="img/p04_5f6f188fba71.jpg" alt="太阳直播秀" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">23 / 24</div><div class="ex-unit fade d1">第四单元 · 未来共创</div><div class="ex-title fade d2">数字天文台</div><div class="ex-desc fade d3">仰望星空 · 数字星图</div><div class="ex-img fade d4"><img src="img/p18_ec375d4f0228.jpg" alt="数字天文台" loading="lazy"></div></section>
+<section class="scene"><div class="ex-num fade">24 / 24</div><div class="ex-unit fade d1">第四单元 · 未来共创</div><div class="ex-title fade d2">文脉延续</div><div class="ex-desc fade d3">观众创作实时大屏展示</div><div class="ex-img fade d4"><img src="img/p32_431c8a0d6f02.jpg" alt="文脉延续" loading="lazy"></div></section>
+<section class="scene"><div class="kicker fade">尾 声</div><div class="end-title fade d1">星河共赴</div><div class="end-sub fade d2">未来没有答案<br>但我们一直在路上</div></section>
 <script>
-document.documentElement.classList.add('js');
-const scenes=[...document.querySelectorAll('.scene')],nav=document.getElementById('nav'),count=document.getElementById('count'),hint=document.getElementById('hint');let idx=0,busy=false,startY=0;for(let n=0;n<scenes.length;n++){const d=document.createElement('i');if(n===0)d.className='on';nav.appendChild(d)}
-function updateHint(){if(idx===scenes.length-1){hint.innerHTML='已至终章 · 下滑返回重温'}else if(idx===scenes.length-2){hint.innerHTML='点击切换选项 · 定制你的任务'}else{hint.innerHTML='<b>↑</b>上滑进入下一章'}}
-function go(n){if(busy||n<0||n>scenes.length-1||n===idx)return;busy=true;const old=scenes[idx],next=scenes[n];old.classList.remove('active');old.classList.add('leaving');setTimeout(function(){old.classList.remove('leaving')},900);idx=n;next.classList.add('active');[...nav.children].forEach((d,k)=>d.classList.toggle('on',k===idx));count.textContent=String(idx+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');updateHint();setTimeout(function(){busy=false},820)}
-addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>20)go(idx+(e.deltaY>0?1:-1))},{passive:true});addEventListener('keydown',e=>{if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(idx+1)}if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(idx-1)}});addEventListener('touchstart',e=>startY=e.touches[0].clientY,{passive:true});addEventListener('touchend',e=>{const dy=startY-e.changedTouches[0].clientY;if(Math.abs(dy)>42)go(idx+(dy>0?1:-1))},{passive:true});
-const startEl=document.getElementById('start');startEl.addEventListener('click',()=>startEl.classList.add('hide'));startEl.addEventListener('touchend',()=>startEl.classList.add('hide'),{passive:true});startEl.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();startEl.classList.add('hide')}});
-const opts={role:['未来航天员','深空科学家'],dest:['月球基地','火星轨道'],ship:['深空探索舰','轨道母船'],mission:['寻找水源','观测宇宙']};const sel={role:0,dest:0,ship:0,mission:0};
-function renderMeta(){document.getElementById('meta').textContent=opts.role[sel.role]+' · '+opts.dest[sel.dest]+' · '+opts.ship[sel.ship]+' · '+opts.mission[sel.mission]}
-document.querySelectorAll('.choice').forEach(el=>{const g=el.dataset.g,seg=el.querySelector('.seg'),pills=[...seg.querySelectorAll('i')];const pick=v=>{sel[g]=v;pills.forEach((o,k)=>o.classList.toggle('on',k===v));seg.classList.toggle('s1',v===1);renderMeta()};el.addEventListener('click',e=>{const o=e.target.closest('.seg i');pick(o?pills.indexOf(o):(sel[g]+1)%2)});el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick((sel[g]+1)%2)}})});
-document.getElementById('again').addEventListener('click',()=>go(11));
-document.getElementById('save').addEventListener('click',saveCard);
-function saveCard(){
-const W=750,H=1334,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
-const bg=x.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#0b141b');bg.addColorStop(1,'#020509');x.fillStyle=bg;x.fillRect(0,0,W,H);
-for(let i=0;i<170;i++){x.fillStyle='rgba(255,255,255,'+(0.12+Math.random()*0.6).toFixed(2)+')';x.beginPath();x.arc(Math.random()*W,Math.random()*H,0.4+Math.random()*1.7,0,7);x.fill()}
-x.strokeStyle='rgba(205,185,140,.4)';x.lineWidth=2;x.beginPath();x.ellipse(W/2,430,W*0.44,120,-0.28,0,7);x.stroke();
-x.strokeStyle='rgba(205,185,140,.16)';x.lineWidth=1;x.beginPath();x.ellipse(W/2,430,W*0.52,150,-0.28,0,7);x.stroke();
-x.textAlign='center';x.fillStyle='#cdb98c';x.font='300 30px serif';x.fillText('问  天',W/2,150);
-x.fillStyle='rgba(238,232,220,.55)';x.font='20px serif';x.fillText('我 的 宇 宙 档 案',W/2,205);
-x.fillStyle='rgba(205,185,140,.5)';x.fillRect(W/2-24,245,48,2);
-const rows=[['身 份',opts.role[sel.role]],['目的地',opts.dest[sel.dest]],['飞 船',opts.ship[sel.ship]],['任 务',opts.mission[sel.mission]]];
-x.textAlign='left';
-rows.forEach(function(r,i){const y=560+i*120;
-x.fillStyle='rgba(238,232,220,.42)';x.font='21px sans-serif';x.fillText(r[0],130,y);
-x.fillStyle='#f0e9d8';x.font='34px serif';x.fillText(r[1],130,y+52);
-x.strokeStyle='rgba(205,185,140,.22)';x.lineWidth=1;x.beginPath();x.moveTo(130,y+78);x.lineTo(W-130,y+78);x.stroke()});
-x.textAlign='center';x.fillStyle='rgba(238,232,220,.38)';x.font='19px sans-serif';
-x.fillText('星河共赴 · 下一段航程，由你定义',W/2,H-150);
-c.toBlob(function(b){
-const file=new File([b],'wentian-card.png',{type:'image/png'});
-const dl=function(){const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='wentian-card.png';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove()},1000)};
-if(navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'我的宇宙档案'}).catch(dl)}else{dl()}
-});
-}
-</script>
-<script>
-/* v10 星球联动引擎：手指横向拖拽直接旋转星球（带惯性），松手后恢复自转；切换场景时星球获得转动冲量 */
+// star field
 (function(){
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var balls = [];
-  document.querySelectorAll('.ball3d').forEach(function(ball){
-    var css = getComputedStyle(ball);
-    var spd = parseFloat(css.getPropertyValue('--spd')) || 28;
-    var cspd = parseFloat(css.getPropertyValue('--cspd')) || 34;
-    var layers = [];
-    var surf = ball.querySelector('.bsurf'), cloud = ball.querySelector('.bcloud');
-    if(surf) layers.push({el:surf, sec:spd, off:0});
-    if(cloud) layers.push({el:cloud, sec:cspd, off:0, cloud:true});
-    var st = {ball:ball, layers:layers, vel:0, dragging:false, lastX:0, lastT:0, w:ball.clientWidth || 200};
-    ball.addEventListener('pointerdown', function(e){
-      st.dragging = true; st.lastX = e.clientX; st.lastT = performance.now(); st.vel = 0;
-      try{ ball.setPointerCapture(e.pointerId); }catch(_){}
-      ball.style.cursor = 'grabbing';
-    });
-    ball.addEventListener('pointermove', function(e){
-      if(!st.dragging) return;
-      var dx = e.clientX - st.lastX, now = performance.now(), dt = Math.max(1, now - st.lastT);
-      st.layers.forEach(function(L){ L.off += dx * (L.cloud ? 0.7 : 1); });
-      st.vel = 0.75 * st.vel + 0.25 * (dx / dt * 1000);
-      st.lastX = e.clientX; st.lastT = now;
-    });
-    var end = function(){ st.dragging = false; ball.style.cursor = 'grab'; };
-    ball.addEventListener('pointerup', end);
-    ball.addEventListener('pointercancel', end);
-    balls.push(st);
-  });
-  var last = performance.now();
-  function frame(now){
-    requestAnimationFrame(frame);
-    var dt = Math.min(0.05, (now - last) / 1000); last = now;
-    for(var bi = 0; bi < balls.length; bi++){
-      var st = balls[bi];
-      var scene = st.ball.closest('.scene');
-      if(!scene || !scene.classList.contains('active')) continue;
-      if(!st.dragging){
-        st.vel *= 0.96;
-        if(Math.abs(st.vel) < 2) st.vel = 0;
-      }
-      st.w = st.ball.clientWidth || st.w;
-      var T = 2 * st.w;
-      for(var li = 0; li < st.layers.length; li++){
-        var L = st.layers[li];
-        if(!st.dragging) L.off += (T / L.sec) * dt + st.vel * dt * (L.cloud ? 0.7 : 1);
-        L.off = ((L.off % T) + T) % T;
-        L.el.style.transform = 'translateX(' + (-L.off) + 'px)';
-      }
-    }
-  }
-  if(!reduce && balls.length) requestAnimationFrame(frame);
-  /* 场景切换联动：给新场景的星球一个转动冲量 */
-  if(typeof window.go === 'function'){
-    var _go = window.go;
-    window.go = function(n){
-      _go(n);
-      setTimeout(function(){
-        balls.forEach(function(st){
-          var scene = st.ball.closest('.scene');
-          if(scene && scene.classList.contains('active')) st.vel += 220;
-        });
-      }, 80);
-    };
-  }
+var c=document.getElementById('stars'),x=c.getContext('2d'),S=[];
+function rs(){c.width=innerWidth;c.height=innerHeight;S=[];for(var i=0;i<140;i++)S.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+.3,p:Math.random()*6.28});}
+rs();addEventListener('resize',rs);
+(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<S.length;i++){var s=S[i];s.p+=.015;var o=.25+.55*Math.abs(Math.sin(s.p));x.globalAlpha=o;x.fillStyle='#d8cba8';x.beginPath();x.arc(s.x,s.y,s.r,0,6.29);x.fill();}x.globalAlpha=1;requestAnimationFrame(loop);})();
 })();
-</script>
-<script>
-/* v17:通用灯箱——点击任意照片条图片进入大图，按页面顺序切换 */
+// entrance animations
 (function(){
-var imgs=[].slice.call(document.querySelectorAll('.pitem img'));
-var lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbcap=document.getElementById('lbcap'),cur=0;
-imgs.forEach(function(im,k){im.addEventListener('click',function(){open(k);});});
-function open(k){cur=k;show();}
-function show(){lbimg.src=imgs[cur].src;lbcap.textContent=imgs[cur].dataset.cap||imgs[cur].alt;lb.classList.add('open');}
-function close(){lb.classList.remove('open');}
-function step(d){cur=(cur+d+imgs.length)%imgs.length;show();}
-document.getElementById('lbx').addEventListener('click',close);
-document.getElementById('lbp').addEventListener('click',function(e){e.stopPropagation();step(-1);});
-document.getElementById('lbn').addEventListener('click',function(e){e.stopPropagation();step(1);});
-lb.addEventListener('click',function(e){if(e.target===lb)close();});
-var sx=0;
-lb.addEventListener('touchstart',function(e){sx=e.changedTouches[0].clientX;e.stopPropagation();},{passive:true});
-lb.addEventListener('touchend',function(e){e.stopPropagation();var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>48)step(dx<0?1:-1);},{passive:true});
-window.addEventListener('keydown',function(e){
-if(!lb.classList.contains('open'))return;
-if(e.key==='Escape'){close();e.stopPropagation();}
-else if(e.key==='ArrowLeft'){step(-1);e.stopPropagation();}
-else if(e.key==='ArrowRight'){step(1);e.stopPropagation();}
-},true);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.18});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el);});
 })();
-</script>
-<div id="lb"><button id="lbx" aria-label="关闭">×</button><button id="lbp" aria-label="上一张">‹</button><img id="lbimg" alt=""><button id="lbn" aria-label="下一张">›</button><div id="lbcap"></div></div>
-</body></html>
+</script></body></html>
