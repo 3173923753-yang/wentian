@@ -34,6 +34,18 @@ h1.cover{font-size:60px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 .swipe::-webkit-scrollbar{display:none}
 .swipe img{flex:0 0 100%;width:100%;scroll-snap-align:center;display:block}
 .swipe-hint{font-size:10px;letter-spacing:.3em;color:#6f6653;margin-top:8px;text-align:center}
+/* quiz */
+.quiz-desc{font-size:12.5px;line-height:1.9;color:#a89c82;text-align:center;margin-bottom:20px}
+.choices{display:flex;flex-direction:column;gap:12px}
+.choice{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid rgba(201,168,106,.2);border-radius:10px;background:rgba(255,255,255,.025);cursor:pointer}
+.clabel .cname{font-size:14px;letter-spacing:.2em;color:#e8e2d4}
+.seg{position:relative;display:flex;flex:1;max-width:230px;min-width:0;border:1px solid rgba(201,168,106,.28);border-radius:999px;padding:3px;background:rgba(2,5,8,.5)}
+.seg i{position:relative;z-index:1;flex:1;min-width:0;text-align:center;font-style:normal;font-size:10px;letter-spacing:.02em;padding:9px 2px;color:rgba(238,232,220,.42);transition:color .3s;white-space:nowrap;overflow:hidden}
+.seg i.on{color:#0b0f13;font-weight:700}
+.seg b{position:absolute;z-index:0;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:linear-gradient(180deg,#e6d3a1,#c8ab6e);transition:left .3s}
+.seg.s1 b{left:calc(50% + 0px)}
+.actions{display:flex;justify-content:center;margin:18px 0}
+.actions button{background:none;border:1px solid rgba(201,168,106,.4);color:#c9a86a;font-size:13px;letter-spacing:.3em;padding:12px 32px;border-radius:999px;cursor:pointer}
 /* ending */
 .end-title{font-size:32px;letter-spacing:.2em;color:#f5edd8;text-align:center;margin-bottom:12px}
 .end-sub{font-size:13px;letter-spacing:.25em;color:#9a8f76;line-height:2.4;text-align:center}
@@ -71,7 +83,7 @@ h1.cover{font-size:60px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 </section>
 <section class="page">
 <div class="card"><div class="rv" data-d="0" style="position:absolute;inset:0;pointer-events:none"></div><div class="bignum">11</div><div class="cnum rv" data-d="1">11 / 24</div><h3 class="rv" data-d="2">航天技术累计</h3><p class="rv" data-d="3">从长征一号到长征五号，火箭一代代迭代；测控网、人才体系，一步一个脚印建成。</p><div class="rv" data-d="4"><div class="cimg"><img src="img/p26_25e311267b11.jpg" alt="航天技术累计" loading="lazy" decoding="async"></div></div></div>
-<div class="card flip"><div class="rv" data-d="0" style="position:absolute;inset:0;pointer-events:none"></div><div class="bignum">12</div><div class="cnum rv" data-d="1">12 / 24</div><h3 class="rv" data-d="2">星空隧道</h3><p class="rv" data-d="3">穿过这条星空隧道，从百年前的仰望，走进今天的星辰大海。</p><div class="rv" data-d="4"><div class="cimg"><img src="img/p31_abd299524b46.jpg" alt="星空隧道" loading="lazy" decoding="async"></div></div></div>
+<div class="card flip"><div class="rv" data-d="0" style="position:absolute;inset:0;pointer-events:none"></div><div class="bignum">12</div><div class="cnum rv" data-d="1">12 / 24</div><h3 class="rv" data-d="2">星空隧道</h3><p class="rv" data-d="3">穿过星空隧道——全息空间站、太空漫步、沉浸式座舱，未来触手可及。</p><div class="rv" data-d="4"><div class="swipe"><img src="img/p42_quanxi.jpg" alt="星空隧道" loading="lazy" decoding="async"><img src="img/p43_taikongqiao.jpg" alt="星空隧道" loading="lazy" decoding="async"><img src="img/p44_zuocang.jpg" alt="星空隧道" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div></div>
 </section>
 <section class="page">
 <div class="uhead"><div class="utag rv" data-d="1">第三单元</div><div class="utitle rv" data-d="2">盛世问天</div><div class="udesc rv" data-d="3">从跟跑到领跑 · 星辰大海</div></div>
@@ -99,7 +111,8 @@ h1.cover{font-size:60px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 <div class="card"><div class="rv" data-d="0" style="position:absolute;inset:0;pointer-events:none"></div><div class="bignum">23</div><div class="cnum rv" data-d="1">23 / 24</div><h3 class="rv" data-d="2">数字天文台</h3><p class="rv" data-d="3">星轨划夜空，数字天文台把宇宙装进口袋，足不出户也可仰望星河。</p><div class="rv" data-d="4"><div class="cimg"><img src="img/p41_tianwentai.jpg" alt="数字天文台" loading="lazy" decoding="async"></div></div></div>
 <div class="card flip"><div class="rv" data-d="0" style="position:absolute;inset:0;pointer-events:none"></div><div class="bignum">24</div><div class="cnum rv" data-d="1">24 / 24</div><h3 class="rv" data-d="2">文脉延续</h3><p class="rv" data-d="3">你的画作、你的航天器设计，可以实时登上大屏——从仰望星空，到创造星空。</p><div class="rv" data-d="4"><div class="cimg"><img src="img/p32_431c8a0d6f02.jpg" alt="文脉延续" loading="lazy" decoding="async"></div></div></div>
 </section>
-<section class="page"><div class="kicker rv" data-d="1">尾 声</div><div class="end-title rv" data-d="2">星河共赴</div><div class="end-sub rv" data-d="3">未来没有答案<br>但我们一直在路上</div></section>
+<section class="page"><div class="kicker rv" data-d="1">我 的 未 来 航 天 任 务</div><div class="end-title rv" data-d="2">选择你的航程</div><div class="quiz-desc rv" data-d="3">点击切换每项的两种可能，生成属于你的未来任务。</div><div class="choices"><div class="choice rv" data-d="4" data-g="role"><div class="clabel"><span class="cname">身份</span></div><div class="seg"><i class="on">未来航天员</i><i>深空科学家</i><b></b></div></div><div class="choice rv" data-d="5" data-g="dest"><div class="clabel"><span class="cname">目的地</span></div><div class="seg"><i class="on">月球基地</i><i>火星轨道</i><b></b></div></div><div class="choice rv" data-d="5" data-g="ship"><div class="clabel"><span class="cname">飞船</span></div><div class="seg"><i class="on">深空探索舰</i><i>轨道母船</i><b></b></div></div><div class="choice rv" data-d="5" data-g="mission"><div class="clabel"><span class="cname">任务</span></div><div class="seg"><i class="on">寻找水源</i><i>观测宇宙</i><b></b></div></div></div></section>
+<section class="page"><div class="kicker rv" data-d="1">我 的 宇 宙 档 案</div><div class="end-title rv" data-d="2">星河共赴</div><div class="quiz-desc rv" data-d="3" id="meta">未来航天员 · 月球基地 · 深空探索舰 · 寻找水源</div><div class="actions rv" data-d="4"><button id="again" type="button">重新选择</button></div><div class="end-sub rv" data-d="5">未来没有答案<br>但我们一直在路上</div></section>
 <script>
 (function(){
 var c=document.getElementById('stars'),x=c.getContext('2d'),S=[];
@@ -110,5 +123,19 @@ rs();addEventListener('resize',rs);
 (function(){
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.25});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+
+(function(){
+var opts={role:['未来航天员','深空科学家'],dest:['月球基地','火星轨道'],ship:['深空探索舰','轨道母船'],mission:['寻找水源','观测宇宙']};
+var sel={role:0,dest:0,ship:0,mission:0};
+function renderMeta(){var m=document.getElementById('meta');if(m)m.textContent=opts.role[sel.role]+' · '+opts.dest[sel.dest]+' · '+opts.ship[sel.ship]+' · '+opts.mission[sel.mission];}
+document.querySelectorAll('.choice').forEach(function(el){
+  var g=el.dataset.g,seg=el.querySelector('.seg'),pills=Array.prototype.slice.call(seg.querySelectorAll('i'));
+  function pick(v){sel[g]=v;pills.forEach(function(o,k){o.classList.toggle('on',k===v)});seg.classList.toggle('s1',v===1);renderMeta();}
+  el.addEventListener('click',function(e){var o=e.target.closest('.seg i');pick(o?pills.indexOf(o):(sel[g]+1)%2);});
+});
+var again=document.getElementById('again');
+if(again)again.addEventListener('click',function(){var pages=document.querySelectorAll('.page');if(pages.length>=2)pages[pages.length-2].scrollIntoView({behavior:'smooth'});});
+renderMeta();
 })();
 </script></body></html>
