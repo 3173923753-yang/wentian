@@ -52,6 +52,10 @@ h1.cover{font-size:58px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 #pg i{width:5px;height:5px;border-radius:50%;background:rgba(201,168,106,.25);transition:all .3s}
 #pg i.on{background:#c9a86a;transform:scale(1.5)}
 #pnum{position:fixed;z-index:5;left:0;right:0;bottom:calc(10px + env(safe-area-inset-bottom));text-align:center;font-size:10px;letter-spacing:.3em;color:rgba(201,168,106,.5);pointer-events:none}
+#mbtn{position:fixed;z-index:6;top:calc(14px + env(safe-area-inset-top));right:16px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,168,106,.45);background:rgba(7,11,22,.55);color:#c9a86a;font-size:17px;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
+#mbtn.playing{animation:mspin 7s linear infinite}
+@keyframes mspin{to{transform:rotate(360deg)}}
+#mbtn.muted{opacity:.45;animation:none}
 /* entrance */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
 .slide.on .rv{opacity:1;transform:none}
@@ -64,60 +68,56 @@ h1.cover{font-size:58px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 <div class="slide"><div class="kicker rv" data-d="1">中 国 航 天 主 题 展</div><h1 class="cover rv" data-d="2">问天</h1><div class="cover-sub rv" data-d="3">从 仰 望 到 星 河</div><div class="cover-hint">上 滑 进 入 ↓</div></div>
 <div class="slide">
 <div class="uhead"><div class="utag rv" data-d="1">第一单元</div><div class="utitle rv" data-d="2">古脉溯源</div></div>
-<div class="card"><div class="bignum">01</div><div class="cnum rv" data-d="1">01 / 24</div><h3 class="rv" data-d="2">上古宇宙神话</h3><p class="rv" data-d="3">先民把日月星辰想象成神灵，羲和浴日、望舒逐月、嫦娥奔月——上古星空崇拜，是中国天文学的源头。</p><div class="cimg rv" data-d="4"><img src="img/p16_bc70a6dedeaf.jpg" alt="上古宇宙神话" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">02</div><div class="cnum rv" data-d="1">02 / 24</div><h3 class="rv" data-d="2">屈原《天问》</h3><p class="rv" data-d="3">战国屈原写下《天问》，对天地日月星辰提出一百七十多个问题，是中国人叩问宇宙的千古诗篇。</p><div class="cimg rv" data-d="4"><img src="img/p09_7a71f6bc2ca0.jpg" alt="屈原《天问》" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">01</div><div class="cnum rv" data-d="1">01 / 22</div><h3 class="rv" data-d="2">上古宇宙神话</h3><p class="rv" data-d="3">先民把日月星辰想象成神灵，羲和浴日、望舒逐月、嫦娥奔月——上古星空崇拜，是中国天文学的源头。</p><div class="cimg rv" data-d="4"><img src="img/p16_bc70a6dedeaf.jpg" alt="上古宇宙神话" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">02</div><div class="cnum rv" data-d="1">02 / 22</div><h3 class="rv" data-d="2">屈原《天问》</h3><p class="rv" data-d="3">战国屈原写下《天问》，对天地日月星辰提出一百七十多个问题，是中国人叩问宇宙的千古诗篇。</p><div class="cimg rv" data-d="4"><img src="img/p09_7a71f6bc2ca0.jpg" alt="屈原《天问》" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">03</div><div class="cnum rv" data-d="1">03 / 24</div><h3 class="rv" data-d="2">先秦星学体系</h3><p class="rv" data-d="3">《甘石星经》是世界上最早的恒星表；二十八星宿划分天区，星官文化影响了整个东亚。</p><div class="cimg rv" data-d="4"><img src="img/p17_e66b668e50ca.jpg" alt="先秦星学体系" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">04</div><div class="cnum rv" data-d="1">04 / 24</div><h3 class="rv" data-d="2">中古天文仪器</h3><p class="rv" data-d="3">浑天仪演示天体运行，元代郭守敬创制简仪，圭表测日影定节气——古人的精密仪器。</p><div class="cimg rv" data-d="4"><img src="img/p12_cd10a3f30be0.jpg" alt="中古天文仪器" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">03</div><div class="cnum rv" data-d="1">03 / 22</div><h3 class="rv" data-d="2">先秦星学体系</h3><p class="rv" data-d="3">《甘石星经》是世界上最早的恒星表；二十八星宿划分天区，星官文化影响了整个东亚。</p><div class="cimg rv" data-d="4"><img src="img/p17_e66b668e50ca.jpg" alt="先秦星学体系" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">04</div><div class="cnum rv" data-d="1">04 / 22</div><h3 class="rv" data-d="2">中古天文仪器</h3><p class="rv" data-d="3">浑天仪演示天体运行，元代郭守敬创制简仪，圭表测日影定节气——古人的精密仪器。</p><div class="cimg rv" data-d="4"><img src="img/p12_cd10a3f30be0.jpg" alt="中古天文仪器" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">05</div><div class="cnum rv" data-d="1">05 / 24</div><h3 class="rv" data-d="2">传统宇宙观美学</h3><p class="rv" data-d="3">天圆地方的宇宙观，水墨绘星图，敦煌飞天缀星轨——古人把浪漫写进星空。</p><div class="cimg rv" data-d="4"><img src="img/p20_f4dab6ff7908.jpg" alt="传统宇宙观美学" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">06</div><div class="cnum rv" data-d="1">06 / 24</div><h3 class="rv" data-d="2">观星动态投影</h3><p class="rv" data-d="3">回到古代观星台，看古人如何在没有望远镜的年代，夜夜仰望、记录星辰。</p><div class="cimg rv" data-d="4"><img src="img/p10_8bceef980e6b.jpg" alt="观星动态投影" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">05</div><div class="cnum rv" data-d="1">05 / 22</div><h3 class="rv" data-d="2">传统宇宙观美学</h3><p class="rv" data-d="3">天圆地方的宇宙观，水墨绘星图，敦煌飞天缀星轨——古人把浪漫写进星空。</p><div class="cimg rv" data-d="4"><img src="img/p20_f4dab6ff7908.jpg" alt="传统宇宙观美学" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">06</div><div class="cnum rv" data-d="1">06 / 22</div><h3 class="rv" data-d="2">观星动态投影</h3><p class="rv" data-d="3">回到古代观星台，看古人如何在没有望远镜的年代，夜夜仰望、记录星辰。</p><div class="cimg rv" data-d="4"><img src="img/p10_8bceef980e6b.jpg" alt="观星动态投影" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
 <div class="uhead"><div class="utag rv" data-d="1">第二单元</div><div class="utitle rv" data-d="2">百年求索</div></div>
-<div class="card"><div class="bignum">07</div><div class="cnum rv" data-d="1">07 / 24</div><h3 class="rv" data-d="2">近代科学启蒙</h3><p class="rv" data-d="3">明末清初西方天文学传入，徐光启等译《崇祯历书》，沉睡的星空在国人眼中重新亮起。</p><div class="cimg rv" data-d="4"><img src="img/p14_2352bd39df6e.jpg" alt="近代科学启蒙" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">08</div><div class="cnum rv" data-d="1">08 / 24</div><h3 class="rv" data-d="2">1950–1970 拓荒创业阶段</h3><p class="rv" data-d="3">一穷二白中起步，第一代航天人住帐篷、用算盘计算，在戈壁滩上写下拓荒史诗。</p><div class="cimg rv" data-d="4"><img src="img/p02_d6e37def63aa.jpg" alt="1950–1970 拓荒创业阶段" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">07</div><div class="cnum rv" data-d="1">07 / 22</div><h3 class="rv" data-d="2">近代科学启蒙</h3><p class="rv" data-d="3">明末清初西方天文学传入，徐光启等译《崇祯历书》，沉睡的星空在国人眼中重新亮起。</p><div class="cimg rv" data-d="4"><img src="img/p14_2352bd39df6e.jpg" alt="近代科学启蒙" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">08</div><div class="cnum rv" data-d="1">08 / 22</div><h3 class="rv" data-d="2">1950–1970 拓荒创业阶段</h3><p class="rv" data-d="3">一穷二白中起步，第一代航天人住帐篷、用算盘计算，在戈壁滩上写下拓荒史诗。</p><div class="cimg rv" data-d="4"><img src="img/p02_d6e37def63aa.jpg" alt="1950–1970 拓荒创业阶段" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">09</div><div class="cnum rv" data-d="1">09 / 24</div><h3 class="rv" data-d="2">两弹一星</h3><p class="rv" data-d="3">1964年原子弹爆炸成功，1970年卫星上天——两弹一星是新中国科技自立的丰碑。</p><div class="cimg rv" data-d="4"><img src="img/p45_liangdan.jpg" alt="两弹一星" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">10</div><div class="cnum rv" data-d="1">10 / 24</div><h3 class="rv" data-d="2">东方红一号</h3><p class="rv" data-d="3">1970年4月24日，中国第一颗人造卫星发射成功，《东方红》乐曲响彻太空。</p><div class="cimg rv" data-d="4"><img src="img/p46_dfh1.jpg" alt="东方红一号" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">09</div><div class="cnum rv" data-d="1">09 / 22</div><h3 class="rv" data-d="2">两弹一星</h3><p class="rv" data-d="3">1964年原子弹爆炸成功，1970年卫星上天——两弹一星是新中国科技自立的丰碑。</p><div class="cimg rv" data-d="4"><img src="img/p45_liangdan.jpg" alt="两弹一星" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">10</div><div class="cnum rv" data-d="1">10 / 22</div><h3 class="rv" data-d="2">东方红一号</h3><p class="rv" data-d="3">1970年4月24日，中国第一颗人造卫星发射成功，《东方红》乐曲响彻太空。</p><div class="cimg rv" data-d="4"><img src="img/p46_dfh1.jpg" alt="东方红一号" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">11</div><div class="cnum rv" data-d="1">11 / 24</div><h3 class="rv" data-d="2">航天技术累计</h3><p class="rv" data-d="3">从长征一号到长征五号，火箭一代代迭代；测控网、人才体系，一步一个脚印建成。</p><div class="cimg rv" data-d="4"><img src="img/p26_25e311267b11.jpg" alt="航天技术累计" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">12</div><div class="cnum rv" data-d="1">12 / 24</div><h3 class="rv" data-d="2">星空隧道</h3><p class="rv" data-d="3">穿过星空隧道——全息空间站、太空漫步、沉浸式座舱，未来触手可及。</p><div class="swipe rv" data-d="4"><img src="img/p42_quanxi.jpg" alt="星空隧道" loading="lazy" decoding="async"><img src="img/p43_taikongqiao.jpg" alt="星空隧道" loading="lazy" decoding="async"><img src="img/p44_zuocang.jpg" alt="星空隧道" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div>
+<div class="card"><div class="bignum">11</div><div class="cnum rv" data-d="1">11 / 22</div><h3 class="rv" data-d="2">航天技术累计</h3><p class="rv" data-d="3">从长征一号到长征五号，火箭一代代迭代；测控网、人才体系，一步一个脚印建成。</p><div class="cimg rv" data-d="4"><img src="img/p26_25e311267b11.jpg" alt="航天技术累计" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">12</div><div class="cnum rv" data-d="1">12 / 22</div><h3 class="rv" data-d="2">星空隧道</h3><p class="rv" data-d="3">穿过星空隧道——全息空间站、太空漫步、沉浸式座舱，未来触手可及。</p><div class="swipe rv" data-d="4"><img src="img/p42_quanxi.jpg" alt="星空隧道" loading="lazy" decoding="async"><img src="img/p43_taikongqiao.jpg" alt="星空隧道" loading="lazy" decoding="async"><img src="img/p44_zuocang.jpg" alt="星空隧道" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div>
 </div>
 <div class="slide">
 <div class="uhead"><div class="utag rv" data-d="1">第三单元</div><div class="utitle rv" data-d="2">盛世问天</div></div>
-<div class="card"><div class="bignum">13</div><div class="cnum rv" data-d="1">13 / 24</div><h3 class="rv" data-d="2">2003 载人航天突破</h3><p class="rv" data-d="3">2003年10月15日，杨利伟乘神舟五号飞天，中国成为第三个独立掌握载人航天的国家。</p><div class="cimg rv" data-d="4"><img src="img/p03_a3ae3d2611a6.jpg" alt="2003 载人航天突破" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">14</div><div class="cnum rv" data-d="1">14 / 24</div><h3 class="rv" data-d="2">嫦娥探月工程</h3><p class="rv" data-d="3">绕、落、回三步走：嫦娥一号绕月，嫦娥三号落月，嫦娥五号从月球带回1731克月壤。</p><div class="cimg rv" data-d="4"><img src="img/p29_eb25640259be.jpg" alt="嫦娥探月工程" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">13</div><div class="cnum rv" data-d="1">13 / 22</div><h3 class="rv" data-d="2">2003 载人航天突破</h3><p class="rv" data-d="3">2003年10月15日，杨利伟乘神舟五号飞天，中国成为第三个独立掌握载人航天的国家。</p><div class="cimg rv" data-d="4"><img src="img/p03_a3ae3d2611a6.jpg" alt="2003 载人航天突破" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">14</div><div class="cnum rv" data-d="1">14 / 22</div><h3 class="rv" data-d="2">嫦娥探月工程</h3><p class="rv" data-d="3">绕、落、回三步走：嫦娥一号绕月，嫦娥三号落月，嫦娥五号从月球带回1731克月壤。</p><div class="cimg rv" data-d="4"><img src="img/p29_eb25640259be.jpg" alt="嫦娥探月工程" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">15</div><div class="cnum rv" data-d="1">15 / 24</div><h3 class="rv" data-d="2">北斗组网</h3><p class="rv" data-d="3">北斗三号全球组网完成，中国建成自主可控的全球卫星导航系统，服务全球一半以上国家。</p><div class="cimg rv" data-d="4"><img src="img/p35_bf4817131611.jpg" alt="北斗组网" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">16</div><div class="cnum rv" data-d="1">16 / 24</div><h3 class="rv" data-d="2">天问一号火星探测</h3><p class="rv" data-d="3">2021年天问一号实现绕、着、巡一次成功，祝融号火星车在乌托邦平原留下中国印记。</p><div class="cimg rv" data-d="4"><img src="img/p06_742b2eabc183.jpg" alt="天问一号火星探测" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">15</div><div class="cnum rv" data-d="1">15 / 22</div><h3 class="rv" data-d="2">北斗组网</h3><p class="rv" data-d="3">北斗三号全球组网完成，中国建成自主可控的全球卫星导航系统，服务全球一半以上国家。</p><div class="cimg rv" data-d="4"><img src="img/p35_bf4817131611.jpg" alt="北斗组网" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">16</div><div class="cnum rv" data-d="1">16 / 22</div><h3 class="rv" data-d="2">天问一号火星探测</h3><p class="rv" data-d="3">2021年天问一号实现绕、着、巡一次成功，祝融号火星车在乌托邦平原留下中国印记。</p><div class="cimg rv" data-d="4"><img src="img/p06_742b2eabc183.jpg" alt="天问一号火星探测" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">17</div><div class="cnum rv" data-d="1">17 / 24</div><h3 class="rv" data-d="2">天宫空间站</h3><p class="rv" data-d="3">中国空间站全面建成，三舱T字构型，航天员长期在轨驻留，开展上千项科学实验。</p><div class="cimg rv" data-d="4"><img src="img/p30_3c3708342e32.jpg" alt="天宫空间站" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">18</div><div class="cnum rv" data-d="1">18 / 24</div><h3 class="rv" data-d="2">航天综合成就合集</h3><p class="rv" data-d="3">火箭迭代、太空育种、空间科学、深空探测——中国航天全面开花，成果惠及民生。</p><div class="cimg rv" data-d="4"><img src="img/p33_98636b65e226.jpg" alt="航天综合成就合集" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">17</div><div class="cnum rv" data-d="1">17 / 22</div><h3 class="rv" data-d="2">天宫空间站</h3><p class="rv" data-d="3">中国空间站全面建成，三舱T字构型，航天员长期在轨驻留，开展上千项科学实验。</p><div class="cimg rv" data-d="4"><img src="img/p47_tiangong.jpg" alt="天宫空间站" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">18</div><div class="cnum rv" data-d="1">18 / 22</div><h3 class="rv" data-d="2">航天综合成就合集</h3><p class="rv" data-d="3">火箭迭代、太空育种、空间科学、深空探测——中国航天全面开花，成果惠及民生。</p><div class="cimg rv" data-d="4"><img src="img/p33_98636b65e226.jpg" alt="航天综合成就合集" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
 <div class="uhead"><div class="utag rv" data-d="1">第四单元</div><div class="utitle rv" data-d="2">未来共创</div></div>
-<div class="card"><div class="bignum">19</div><div class="cnum rv" data-d="1">19 / 24</div><h3 class="rv" data-d="2">航天未来规划</h3><p class="rv" data-d="3">巨型穹顶光影天幕 · 畅想未来航天蓝图 · 深空探测</p><div class="cimg rv" data-d="4"><img src="img/p39_qiongtop.jpg" alt="航天未来规划" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">20</div><div class="cnum rv" data-d="1">20 / 24</div><h3 class="rv" data-d="2">航天精神科普</h3><p class="rv" data-d="3">自力更生、艰苦奋斗、大力协同——航天精神是一代代年轻人接续探索的火种。</p><div class="cimg rv" data-d="4"><img src="img/p28_668fadbea26e.jpg" alt="航天精神科普" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">19</div><div class="cnum rv" data-d="1">19 / 22</div><h3 class="rv" data-d="2">航天未来规划</h3><p class="rv" data-d="3">巨型穹顶光影天幕 · 畅想未来航天蓝图 · 深空探测</p><div class="cimg rv" data-d="4"><img src="img/p39_qiongtop.jpg" alt="航天未来规划" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">20</div><div class="cnum rv" data-d="1">20 / 22</div><h3 class="rv" data-d="2">航天精神科普</h3><p class="rv" data-d="3">自力更生、艰苦奋斗、大力协同——航天精神是一代代年轻人接续探索的火种。</p><div class="cimg rv" data-d="4"><img src="img/p28_668fadbea26e.jpg" alt="航天精神科普" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
-<div class="card"><div class="bignum">21</div><div class="cnum rv" data-d="1">21 / 24</div><h3 class="rv" data-d="2">共创互动</h3><p class="rv" data-d="3">设计你的凌苍01号未来航天器，AIGC共创、坐进驾驶舱亲手开飞船——人人都是航天设计师。</p><div class="swipe rv" data-d="4"><img src="img/p38_weilai.jpg" alt="共创互动" loading="lazy" decoding="async"><img src="img/p40_jiashi.jpg" alt="共创互动" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div>
-<div class="card"><div class="bignum">22</div><div class="cnum rv" data-d="1">22 / 24</div><h3 class="rv" data-d="2">太阳直播秀</h3><p class="rv" data-d="3">直视恒星之光：太阳的黑子、耀斑、日冕，一场关于太阳的直播秀。</p><div class="cimg rv" data-d="4"><img src="img/p04_5f6f188fba71.jpg" alt="太阳直播秀" loading="lazy" decoding="async"></div></div>
-</div>
-<div class="slide">
-<div class="card"><div class="bignum">23</div><div class="cnum rv" data-d="1">23 / 24</div><h3 class="rv" data-d="2">数字天文台</h3><p class="rv" data-d="3">星轨划夜空，数字天文台把宇宙装进口袋，足不出户也可仰望星河。</p><div class="cimg rv" data-d="4"><img src="img/p41_tianwentai.jpg" alt="数字天文台" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">24</div><div class="cnum rv" data-d="1">24 / 24</div><h3 class="rv" data-d="2">文脉延续</h3><p class="rv" data-d="3">你的画作、你的航天器设计，可以实时登上大屏——从仰望星空，到创造星空。</p><div class="cimg rv" data-d="4"><img src="img/p32_431c8a0d6f02.jpg" alt="文脉延续" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">21</div><div class="cnum rv" data-d="1">21 / 22</div><h3 class="rv" data-d="2">共创互动</h3><p class="rv" data-d="3">设计你的凌苍01号未来航天器，AIGC共创、坐进驾驶舱亲手开飞船——人人都是航天设计师。</p><div class="swipe rv" data-d="4"><img src="img/p38_weilai.jpg" alt="共创互动" loading="lazy" decoding="async"><img src="img/p40_jiashi.jpg" alt="共创互动" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div>
+<div class="card"><div class="bignum">22</div><div class="cnum rv" data-d="1">22 / 22</div><h3 class="rv" data-d="2">文脉延续</h3><p class="rv" data-d="3">你的画作、你的航天器设计，可以实时登上大屏——从仰望星空，到创造星空。</p><div class="cimg rv" data-d="4"><img src="img/p32_431c8a0d6f02.jpg" alt="文脉延续" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide"><div class="kicker rv" data-d="1">我 的 未 来 航 天 任 务</div><div class="end-title rv" data-d="2">选择你的航程</div><div class="quiz-desc rv" data-d="3">点击切换每项的两种可能，生成属于你的未来任务。</div><div class="choices"><div class="choice rv" data-d="4" data-g="role"><div class="clabel"><span class="cname">身份</span></div><div class="seg"><i class="on">未来航天员</i><i>深空科学家</i><b></b></div></div><div class="choice rv" data-d="4" data-g="dest"><div class="clabel"><span class="cname">目的地</span></div><div class="seg"><i class="on">月球基地</i><i>火星轨道</i><b></b></div></div><div class="choice rv" data-d="5" data-g="ship"><div class="clabel"><span class="cname">飞船</span></div><div class="seg"><i class="on">深空探索舰</i><i>轨道母船</i><b></b></div></div><div class="choice rv" data-d="5" data-g="mission"><div class="clabel"><span class="cname">任务</span></div><div class="seg"><i class="on">寻找水源</i><i>观测宇宙</i><b></b></div></div></div></div>
 <div class="slide"><div class="kicker rv" data-d="1">我 的 宇 宙 档 案</div><div class="end-title rv" data-d="2">星河共赴</div><div class="quiz-desc rv" data-d="3" id="meta">未来航天员 · 月球基地 · 深空探索舰 · 寻找水源</div><div class="actions rv" data-d="4"><button id="again" type="button">重新选择</button></div><div class="end-sub rv" data-d="5">未来没有答案<br>但我们一直在路上</div></div>
 </div></div>
-<div id="pg"></div><div id="pnum"></div>
+<div id="pg"></div><div id="pnum"></div><button id="mbtn" type="button" aria-label="音乐开关">♪</button>
 <script>
 (function(){
 var vp=document.getElementById('vp'),track=document.getElementById('track'),
@@ -179,6 +179,61 @@ document.querySelectorAll('.choice').forEach(function(el){
 var again=document.getElementById('again');
 if(again)again.addEventListener('click',function(e){e.stopPropagation();go(N-2);});
 renderMeta();
+// ---- ambient music: generative pentatonic (Web Audio, no file needed) ----
+var AC=null,master=null,dly=null,musicOn=true,musicStarted=false,mStep=0;
+var SCALE=[293.66,329.63,369.99,440.00,493.88,587.33];
+var ROOTS=[146.83,123.47,98.00,110.00];
+function audioInit(){
+  if(AC)return;
+  try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){return;}
+  master=AC.createGain();master.gain.value=0;master.connect(AC.destination);
+  dly=AC.createDelay(1.0);dly.delayTime.value=0.5;
+  var fb=AC.createGain();fb.gain.value=0.32,wet=AC.createGain();wet.gain.value=0.5;
+  dly.connect(fb);fb.connect(dly);dly.connect(wet);wet.connect(master);
+}
+function pluck(f,t,dur,vol){
+  var o=AC.createOscillator(),g=AC.createGain();
+  o.type='sine';o.frequency.value=f;
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.linearRampToValueAtTime(vol,t+0.04);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g);g.connect(master);g.connect(dly);
+  o.start(t);o.stop(t+dur+0.2);
+}
+function pad(f,t,dur,vol){
+  [1,1.005,2.004].forEach(function(m,i){
+    var o=AC.createOscillator(),g=AC.createGain(),v=vol/(i+1);
+    o.type='triangle';o.frequency.value=f*m;
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.linearRampToValueAtTime(v,t+dur*0.35);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g);g.connect(master);
+    o.start(t);o.stop(t+dur+0.2);
+  });
+}
+function musicTick(){
+  if(!musicOn||!AC)return;
+  var t=AC.currentTime+0.06;
+  if(mStep%4===0){var r=ROOTS[((mStep/4)|0)%ROOTS.length];pad(r,t,9,0.045);pad(r*1.5,t,9,0.028);}
+  if(Math.random()<0.72){var f=SCALE[(Math.random()*SCALE.length)|0]*(Math.random()<0.3?2:1);pluck(f,t+Math.random()*1.6,3.2,0.07);}
+  mStep++;
+}
+var mbtn=document.getElementById('mbtn');
+function updateMusicBtn(){
+  mbtn.classList.toggle('playing',musicOn&&musicStarted);
+  mbtn.classList.toggle('muted',!musicOn);
+  mbtn.textContent=musicOn?'♪':'✕';
+}
+function musicStart(){
+  if(musicStarted)return;musicStarted=true;
+  audioInit();if(!AC){updateMusicBtn();return;}
+  if(AC.state==='suspended')AC.resume();
+  master.gain.linearRampToValueAtTime(0.5,AC.currentTime+2.5);
+  setInterval(musicTick,2000);
+  updateMusicBtn();
+}
+mbtn.addEventListener('click',function(e){e.stopPropagation();musicOn=!musicOn;if(musicOn)musicStart();updateMusicBtn();});
+document.addEventListener('pointerdown',function h(){musicStart();document.removeEventListener('pointerdown',h);},{passive:true});
 // stars
 var c=document.getElementById('stars'),x=c.getContext('2d'),S=[];
 function rs(){c.width=innerWidth;c.height=innerHeight;S=[];for(var i=0;i<70;i++)S.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.2+.3,p:Math.random()*6.28});}
