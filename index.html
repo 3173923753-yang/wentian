@@ -6,7 +6,7 @@ html,body{height:100%;overflow:hidden;background:#070b16;color:#e8e2d4;font-fami
 #stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
 #vp{position:fixed;inset:0;z-index:1;overflow:hidden;touch-action:none}
 #track{height:100%;transition:transform .65s cubic-bezier(.22,.61,.36,1);will-change:transform}
-.slide{height:100%;height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:6vh 6vw;position:relative;overflow:hidden}
+.slide{height:100%;height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:6vh 6vw;position:relative;overflow:hidden;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden}
 /* cover */
 .kicker{font-size:11px;letter-spacing:.35em;color:#c9a86a;margin-bottom:10px;text-align:center}
 h1.cover{font-size:58px;letter-spacing:.18em;color:#f5edd8;text-align:center;animation:breathe 4s ease-in-out infinite}
@@ -25,12 +25,12 @@ h1.cover{font-size:58px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 .card .cnum{font-size:10px;letter-spacing:.3em;color:#c9a86a;margin-bottom:4px}
 .card h3{font-size:17px;letter-spacing:.06em;color:#f5edd8;margin-bottom:5px}
 .card p{font-size:11.5px;line-height:1.7;color:#a89c82;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card .cimg{border-radius:8px;overflow:hidden;max-height:24vh}
-.card .cimg img{width:100%;height:100%;max-height:24vh;object-fit:cover;display:block}
+.card .cimg{border-radius:8px;overflow:hidden;display:flex;justify-content:center;background:rgba(0,0,0,.25)}
+.card .cimg img{max-width:100%;max-height:24vh;width:auto;height:auto;display:block}
 /* swipe */
-.swipe{display:flex;overflow-x:auto;touch-action:pan-x;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:8px;max-height:24vh}
+.swipe{display:flex;overflow-x:auto;touch-action:pan-x;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:8px;height:24vh;background:rgba(0,0,0,.25)}
 .swipe::-webkit-scrollbar{display:none}
-.swipe img{flex:0 0 100%;width:100%;max-height:24vh;object-fit:cover;scroll-snap-align:center;display:block}
+.swipe img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;scroll-snap-align:center;display:block}
 .swipe-hint{font-size:10px;letter-spacing:.3em;color:#6f6653;margin-top:6px;text-align:center}
 /* quiz */
 .quiz-desc{font-size:12px;line-height:1.8;color:#a89c82;text-align:center;margin-bottom:16px}
@@ -77,7 +77,7 @@ h1.cover{font-size:58px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 </div>
 <div class="slide">
 <div class="card"><div class="bignum">05</div><div class="cnum rv" data-d="1">05 / 22</div><h3 class="rv" data-d="2">传统宇宙观美学</h3><p class="rv" data-d="3">天圆地方的宇宙观，水墨绘星图，敦煌飞天缀星轨——古人把浪漫写进星空。</p><div class="cimg rv" data-d="4"><img src="img/p20_f4dab6ff7908.jpg" alt="传统宇宙观美学" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">06</div><div class="cnum rv" data-d="1">06 / 22</div><h3 class="rv" data-d="2">观星动态投影</h3><p class="rv" data-d="3">回到古代观星台，看古人如何在没有望远镜的年代，夜夜仰望、记录星辰。</p><div class="cimg rv" data-d="4"><img src="img/p10_8bceef980e6b.jpg" alt="观星动态投影" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">06</div><div class="cnum rv" data-d="1">06 / 22</div><h3 class="rv" data-d="2">观星动态投影</h3><p class="rv" data-d="3">回到古代观星台，看古人如何在没有望远镜的年代，夜夜仰望、记录星辰。</p><div class="cimg rv" data-d="4"><img src="img/p10_bright.jpg" alt="观星动态投影" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
 <div class="uhead"><div class="utag rv" data-d="1">第二单元</div><div class="utitle rv" data-d="2">百年求索</div></div>
@@ -108,7 +108,7 @@ h1.cover{font-size:58px;letter-spacing:.18em;color:#f5edd8;text-align:center;ani
 <div class="slide">
 <div class="uhead"><div class="utag rv" data-d="1">第四单元</div><div class="utitle rv" data-d="2">未来共创</div></div>
 <div class="card"><div class="bignum">19</div><div class="cnum rv" data-d="1">19 / 22</div><h3 class="rv" data-d="2">航天未来规划</h3><p class="rv" data-d="3">巨型穹顶光影天幕 · 畅想未来航天蓝图 · 深空探测</p><div class="cimg rv" data-d="4"><img src="img/p39_qiongtop.jpg" alt="航天未来规划" loading="lazy" decoding="async"></div></div>
-<div class="card"><div class="bignum">20</div><div class="cnum rv" data-d="1">20 / 22</div><h3 class="rv" data-d="2">航天精神科普</h3><p class="rv" data-d="3">自力更生、艰苦奋斗、大力协同——航天精神是一代代年轻人接续探索的火种。</p><div class="cimg rv" data-d="4"><img src="img/p28_668fadbea26e.jpg" alt="航天精神科普" loading="lazy" decoding="async"></div></div>
+<div class="card"><div class="bignum">20</div><div class="cnum rv" data-d="1">20 / 22</div><h3 class="rv" data-d="2">航天精神科普</h3><p class="rv" data-d="3">自力更生、艰苦奋斗、大力协同——航天精神是一代代年轻人接续探索的火种。</p><div class="cimg rv" data-d="4"><img src="img/p04_5f6f188fba71.jpg" alt="航天精神科普" loading="lazy" decoding="async"></div></div>
 </div>
 <div class="slide">
 <div class="card"><div class="bignum">21</div><div class="cnum rv" data-d="1">21 / 22</div><h3 class="rv" data-d="2">共创互动</h3><p class="rv" data-d="3">设计你的凌苍01号未来航天器，AIGC共创、坐进驾驶舱亲手开飞船——人人都是航天设计师。</p><div class="swipe rv" data-d="4"><img src="img/p38_weilai.jpg" alt="共创互动" loading="lazy" decoding="async"><img src="img/p40_jiashi.jpg" alt="共创互动" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div>
