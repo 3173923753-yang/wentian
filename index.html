@@ -58,6 +58,9 @@ h1.cover.long{font-size:32px;letter-spacing:.1em}
 .seg.s1 b{left:calc(50% + 0px)}
 .actions{display:flex;justify-content:center;margin:14px 0}
 .actions button{background:none;border:1px solid rgba(201,168,106,.4);color:#c9a86a;font-size:13px;letter-spacing:.3em;padding:11px 30px;border-radius:999px;cursor:pointer}
+.cert-wrap{text-align:center;margin:0 auto 2vh;max-width:min(68vw,280px)}
+#certimg{width:100%;border-radius:10px;border:1px solid rgba(201,168,106,.3);box-shadow:0 10px 34px rgba(0,0,0,.55);background:#0a0e18;min-height:200px}
+.cert-hint{font-size:11px;color:#a89c82;margin-top:8px;letter-spacing:.15em}
 /* ending */
 .end-title{font-size:30px;letter-spacing:.2em;color:#f5edd8;text-align:center;margin-bottom:10px}
 .end-sub{font-size:12px;letter-spacing:.25em;color:#9a8f76;line-height:2.2;text-align:center}
@@ -127,7 +130,7 @@ h1.cover.long{font-size:32px;letter-spacing:.1em}
 <div class="card"><div class="bignum">20</div><div class="cnum rv" data-d="1">20 / 20</div><h3 class="rv" data-d="2">航天技术成果</h3><p class="rv" data-d="3">1999年神舟一号首飞，2000年北斗一号升空——千禧年之交，中国航天叩开新世纪大门，成果写满星空。</p><div class="swipe rv" data-d="4"><img src="img/p62_sz1.jpg" alt="航天技术成果" loading="lazy" decoding="async"><img src="img/p63_sz1launch.jpg" alt="航天技术成果" loading="lazy" decoding="async"></div><div class="swipe-hint">左 右 滑 动 查 看 →</div></div>
 </div>
 <div class="slide"><div class="kicker rv" data-d="1">我 的 未 来 航 天 任 务</div><div class="end-title rv" data-d="2">选择你的航程</div><div class="quiz-desc rv" data-d="3">点击切换每项的两种可能，生成属于你的未来任务。</div><div class="choices"><div class="choice rv" data-d="4" data-g="role"><div class="clabel"><span class="cname">身份</span></div><div class="seg"><i class="on">未来航天员</i><i>深空科学家</i><b></b></div></div><div class="choice rv" data-d="4" data-g="dest"><div class="clabel"><span class="cname">目的地</span></div><div class="seg"><i class="on">月球基地</i><i>火星轨道</i><b></b></div></div><div class="choice rv" data-d="5" data-g="ship"><div class="clabel"><span class="cname">飞船</span></div><div class="seg"><i class="on">深空探索舰</i><i>轨道母船</i><b></b></div></div><div class="choice rv" data-d="5" data-g="mission"><div class="clabel"><span class="cname">任务</span></div><div class="seg"><i class="on">寻找水源</i><i>观测宇宙</i><b></b></div></div></div></div>
-<div class="slide"><div class="kicker rv" data-d="1">我 的 宇 宙 档 案</div><div class="end-title rv" data-d="2">星河共赴</div><div class="quiz-desc rv" data-d="3" id="meta">未来航天员 · 月球基地 · 深空探索舰 · 寻找水源</div><div class="actions rv" data-d="4"><button id="again" type="button">重新选择</button></div><div class="end-sub rv" data-d="5">未来没有答案<br>但我们一直在路上</div></div>
+<div class="slide"><div class="kicker rv" data-d="1">我 的 宇 宙 档 案</div><div class="end-title rv" data-d="2">星河共赴</div><div class="cert-wrap rv" data-d="3"><canvas id="certcv" width="750" height="1334" style="display:none"></canvas><img id="certimg" alt="我的宇宙档案"><div class="cert-hint">长按图片保存 · 分享给朋友</div></div><div class="actions rv" data-d="4"><button id="again" type="button">重新选择</button></div><div class="end-sub rv" data-d="5">未来没有答案<br>但我们一直在路上</div></div>
 </div></div>
 <div id="pg"></div><div id="pnum"></div><button id="mbtn" type="button" aria-label="音乐开关">♪</button>
 <script>
@@ -182,7 +185,43 @@ document.addEventListener('keydown',function(e){
 // quiz
 var opts={role:['未来航天员','深空科学家'],dest:['月球基地','火星轨道'],ship:['深空探索舰','轨道母船'],mission:['寻找水源','观测宇宙']};
 var sel={role:0,dest:0,ship:0,mission:0};
-function renderMeta(){var m=document.getElementById('meta');if(m)m.textContent=opts.role[sel.role]+' · '+opts.dest[sel.dest]+' · '+opts.ship[sel.ship]+' · '+opts.mission[sel.mission];}
+function renderMeta(){drawCert();}
+var certBg=[new Image(),new Image()],certOk=[false,false];
+certBg[0].src='img/p64_cert_moon.jpg';certBg[1].src='img/p65_cert_mars.jpg';
+certBg[0].onload=function(){certOk[0]=true;drawCert();};
+certBg[1].onload=function(){certOk[1]=true;drawCert();};
+function drawCert(){
+  var cv=document.getElementById('certcv'),im=document.getElementById('certimg');
+  if(!cv||!im||!certOk[sel.dest])return;
+  var bg=certBg[sel.dest],ctx=cv.getContext('2d'),W=750,H=1334;
+  var sc=Math.max(W/bg.width,H/bg.height),dw=bg.width*sc,dh=bg.height*sc;
+  ctx.drawImage(bg,(W-dw)/2,(H-dh)/2,dw,dh);
+  var g=ctx.createLinearGradient(0,0,0,H*0.66);
+  g.addColorStop(0,'rgba(4,7,18,0.78)');g.addColorStop(1,'rgba(4,7,18,0)');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H*0.66);
+  ctx.textAlign='center';
+  ctx.fillStyle='#c9a86a';ctx.font='30px serif';
+  ctx.fillText('星 溯 · 华 夏 问 天',W/2,150);
+  ctx.fillStyle='#f5edd8';ctx.font='bold 76px serif';
+  ctx.fillText('我的宇宙档案',W/2,265);
+  ctx.strokeStyle='rgba(201,168,106,.65)';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(W/2-130,305);ctx.lineTo(W/2+130,305);ctx.stroke();
+  var labels=['身 份','目 的 地','飞 船','任 务'];
+  var vals=[opts.role[sel.role],opts.dest[sel.dest],opts.ship[sel.ship],opts.mission[sel.mission]];
+  for(var i=0;i<4;i++){
+    var y=410+i*118;
+    ctx.fillStyle='#b3a78d';ctx.font='32px serif';
+    ctx.fillText(labels[i],W/2,y);
+    ctx.fillStyle='#f5edd8';ctx.font='bold 46px serif';
+    ctx.fillText(vals[i],W/2,y+56);
+  }
+  var d=new Date(),ds=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+  ctx.fillStyle='rgba(201,168,106,.9)';ctx.font='30px serif';
+  ctx.fillText('星 辰 大 海 · 未 来 由 你 书 写',W/2,H-150);
+  ctx.fillStyle='rgba(178,166,140,.75)';ctx.font='26px serif';
+  ctx.fillText(ds,W/2,H-100);
+  im.src=cv.toDataURL('image/jpeg',0.85);
+}
 document.querySelectorAll('.choice').forEach(function(el){
   var g=el.dataset.g,seg=el.querySelector('.seg'),pills=Array.prototype.slice.call(seg.querySelectorAll('i'));
   function pick(v){sel[g]=v;pills.forEach(function(o,k){o.classList.toggle('on',k===v)});seg.classList.toggle('s1',v===1);renderMeta();}
